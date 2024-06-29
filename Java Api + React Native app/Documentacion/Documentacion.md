@@ -8,9 +8,11 @@ La aplicación está desarrollada utilizando React Native y Expo para la creaci�
 
 ## Configuración del Entorno de Desarrollo
 
-La configuración del entorno de desarrollo para la aplicación Follow incluye:
-
-![React Native](Images/ReactNative.png =200x) ![Spring Boot](Images/Springboot.png =200x) ![Hibernate](Images/Hibernate.png =200x)
+<div>
+    <img src="Images/ReactNative.png" alt="React Native" width="200"/>
+    <img src="Images/Springboot.png" alt="Spring Boot" width="200"/>
+    <img src="Images/Hibernate.png" alt="Hibernate" width="200"/>
+</div>
 
 - **React Native y Expo**: Utilizados para el desarrollo de la interfaz de usuario móvil.
 - **Spring Boot**: Framework utilizado para el desarrollo del backend de la API.
@@ -35,14 +37,14 @@ La configuración del entorno de desarrollo para la aplicación Follow incluye:
 
 ## Diseño de la Aplicación
 
-![Figma](Images/Figma.png)
+<img src="Images/Figma.png" alt="Figma" />
 
 Para el diseño de la aplicación, utilizamos Figma como herramienta de diseño de interfaz de usuario. Siempre seguimos un modelo predefinido en Figma y escogimos colores acordes a lo que queríamos transmitir con la aplicación. Los colores principales utilizados son:
 
-- **#FFF8F2**
-- **#4D4639**
-- **#765A0B**
-- **#FFFFFF**
+- **#FFF8F2**: ![#FFF8F2](https://via.placeholder.com/15/FFF8F2/000000?text=+)
+- **#4D4639**: ![#4D4639](https://via.placeholder.com/15/4D4639/000000?text=+) 
+- **#765A0B**: ![#765A0B](https://via.placeholder.com/15/765A0B/000000?text=+) 
+- **#FFFFFF**: ![#FFFFFF](https://via.placeholder.com/15/FFFFFF/000000?text=+) 
 
 Estamos todos muy contentos con el resultado final de la app, ya que hemos conseguido plasmar correctamente el diseño de Figma en la aplicación.
 
@@ -52,7 +54,7 @@ Estamos todos muy contentos con el resultado final de la app, ya que hemos conse
 
 La pantalla de **Inicio de Sesión** permite a los usuarios iniciar sesión en la aplicación.
 
-![Inicio de Sesión](Images/Login.png =300x)
+<img src="Images/Login.png" alt="Inicio de Sesión" width="300"/>
 
 #### Funcionalidades:
 
@@ -68,7 +70,7 @@ La pantalla de **Inicio de Sesión** permite a los usuarios iniciar sesión en l
 
 La pantalla de **Registro** permite a los usuarios crear una nueva cuenta en la aplicación.
 
-![Registro](Images/SignUp.png =300x)
+<img src="Images/SignUp.png" alt="Registro" width="300"/>
 
 #### Funcionalidades:
 
@@ -83,7 +85,7 @@ La pantalla de **Registro** permite a los usuarios crear una nueva cuenta en la 
 
 La pantalla de **Inicio** es la página principal de la aplicación, donde los usuarios pueden ver su progreso total y la estatua diaria destacada.
 
-![Inicio](Images/Home.png =300x)
+<img src="Images/Home.png" alt="Inicio" width="300"/>
 
 #### Funcionalidades:
 
@@ -99,13 +101,15 @@ La pantalla de **Inicio** es la página principal de la aplicación, donde los u
 
 La pantalla de **Lista de Amigos** permite a los usuarios ver su lista de amigos y buscar nuevos amigos.
 
-![Lista de Amigos](Images/Friends.png =300x)
+<div>
+    <img src="Images/Friends.png" alt="Lista de Amigos"/>
+</div>
 
 #### Funcionalidades:
 
 - **Búsqueda de Amigos**: Los usuarios pueden buscar nuevos amigos ingresando el nombre en el campo de búsqueda.
 - **Envío de Solicitudes de Amistad**: Los usuarios pueden enviar solicitudes de amistad a otros usuarios desde la lista de resultados de búsqueda.
-- **Visualización de Amigos**: Los usuarios pueden ver la lista de sus amigos y hacer clic en ellos para ver más detalles.
+- **Visualización de Amigos**: Los usuarios pueden ver la lista de sus amigos.
 
 ##### Endpoints:
 
@@ -113,38 +117,7 @@ La pantalla de **Lista de Amigos** permite a los usuarios ver su lista de amigos
 - **Envío de Solicitudes de Amistad**: Utiliza el endpoint `/api/send-friend-request` para enviar una solicitud de amistad a otro usuario.
 - **Visualización de Amigos**: Utiliza el endpoint `/api/get-friends` para obtener la lista de amigos de un usuario.
 
-### Pantalla de Mapa
 
-La pantalla de **Mapa** muestra una vista del mapa con marcadores que representan las ubicaciones de las estatuas.
-
-![Mapa](Images/Mapa.png =300x)
-
-#### Funcionalidades:
-
-- **Visualización de Ubicaciones**: Muestra marcadores en el mapa que representan las ubicaciones de las estatuas.
-- **Interacción con Marcadores**: Los usuarios pueden tocar los marcadores para ver más detalles sobre cada estatua.
-
-##### Endpoints:
-
-- **Obtener Todas las Estatuas**: Utiliza el endpoint `/api/statues` para obtener información sobre todas las estatuas disponibles.
-
-### Pantalla de Información de Estatua
-
-La pantalla de **Información de Estatua** muestra detalles sobre una estatua específica, incluyendo su imagen, título, autor, fecha, ubicación, descripción y material.
-
-![Información de Estatua](Images/Estatua.png =300x)
-
-#### Funcionalidades:
-
-- **Visualización de Detalles**: Muestra detalles como el título, autor, fecha, ubicación, descripción y material de la estatua.
-- **Imagen de la Estatua**: Muestra la imagen de la estatua, si está disponible.
-- **Ubicación en el Mapa**: Muestra la ubicación de la estatua en un mapa con un marcador.
-
-##### Endpoints:
-
-- **Obtener Detalles de Estatua**: Utiliza el endpoint `/api/statue/{id}` para obtener información detallada sobre una estatua específica.
-
-## Endpoints
 
 ### Usuarios
 
