@@ -1,6 +1,6 @@
 # Portfolio de Proyectos de Oriol
 
-¡Hola! Soy Oriol, un apasionado programador con el título en Desarrollo de Aplicaciones Multiplataforma obtenido en la Escola del Treball. Actualmente estoy cursando Ingeniería Informática en la Universidad Oberta de Catalunya. Este es mi espacio donde comparto los proyectos que he desarrollado, organizados de manera que puedan ser fácilmente accesibles y compartidos en internet.
+Soy Oriol, un apasionado programador con el título en Desarrollo de Aplicaciones Multiplataforma obtenido en la Escola del Treball. Actualmente estoy cursando Ingeniería Informática en la Universidad Oberta de Catalunya. Este es mi espacio donde comparto los proyectos que he desarrollado, organizados de manera que puedan ser fácilmente accesibles y compartidos en internet.
 
 ## Objetivo
 
@@ -8,7 +8,7 @@ Mi objetivo con este portfolio es mostrar mi habilidad y pasión por el desarrol
 
 ## Contacto
 
-¡Espero que disfrutes explorando mi portfolio! Si tienes alguna pregunta o sugerencia, no dudes en contactarme por privado.
+Si tienes alguna pregunta o sugerencia, no dudes en contactarme por privado.
 
 ## Proyectos
 
