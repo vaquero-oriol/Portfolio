@@ -1,4 +1,4 @@
-#Introduccion a mis Proyectos
+# Introduccion a mis Proyectos
 
 Soy Oriol, un apasionado programador con el título en Desarrollo de Aplicaciones Multiplataforma obtenido en la Escola del Treball. Actualmente estoy cursando Ingeniería Informática en la Universidad Oberta de Catalunya. Este es mi espacio donde comparto los proyectos que he desarrollado, organizados de manera que puedan ser fácilmente accesibles y compartidos en internet.
 
