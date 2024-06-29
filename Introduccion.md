@@ -2,12 +2,6 @@
 
 ¡Hola! Soy Oriol, un apasionado programador con el título en Desarrollo de Aplicaciones Multiplataforma obtenido en la Escola del Treball. Actualmente estoy cursando Ingeniería Informática en la Universidad Oberta de Catalunya. Este es mi espacio donde comparto los proyectos que he desarrollado, organizados de manera que puedan ser fácilmente accesibles y compartidos en internet.
 
-## Acerca de mí
-
-- **Nombre:** Oriol
-- **Educación:** Ingeniería Informática en la Universidad Oberta de Catalunya
-- **Título:** Desarrollo de Aplicaciones Multiplataforma, Escola del Treball
-
 ## Objetivo
 
 Mi objetivo con este portfolio es mostrar mi habilidad y pasión por el desarrollo de software. Aquí encontrarás una variedad de proyectos que he creado, desde aplicaciones móviles hasta soluciones web y más. Cada proyecto está diseñado para demostrar mis habilidades técnicas y creativas en el desarrollo de software.
@@ -18,7 +12,7 @@ Mi objetivo con este portfolio es mostrar mi habilidad y pasión por el desarrol
 
 ## Proyectos
 
-### Follow - Red Social de Descubrimiento de Estatuas en Barcelona
+### 1. Follow - Red Social de Descubrimiento de Estatuas en Barcelona
 
 Follow es una aplicación móvil desarrollada en equipo, donde aprendimos a utilizar tecnologías como React Native para la interfaz de usuario y Hibernate junto con Spring Boot para el backend de la API. Aunque la aplicación no está completamente terminada, representa nuestra pasión por combinar tecnología moderna con la promoción del patrimonio cultural.
 
