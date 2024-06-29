@@ -10,7 +10,7 @@ La aplicación está desarrollada utilizando React Native y Expo para la creaci�
 
 La configuración del entorno de desarrollo para la aplicación Follow incluye:
 
- ![ReactNative](Images/ReactNative.png =200x) ![SpringBoot](Images/Springboot.png =200x) ![Hibernate](Images/Hibernate.png =200x)
+![React Native](Images/ReactNative.png =200x) ![Spring Boot](Images/Springboot.png =200x) ![Hibernate](Images/Hibernate.png =200x)
 
 - **React Native y Expo**: Utilizados para el desarrollo de la interfaz de usuario móvil.
 - **Spring Boot**: Framework utilizado para el desarrollo del backend de la API.
