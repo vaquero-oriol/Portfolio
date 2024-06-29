@@ -10,7 +10,7 @@ La aplicación está desarrollada utilizando React Native y Expo para la creaci�
 
 La configuración del entorno de desarrollo para la aplicación Follow incluye:
 
-![React Native](Images/ReactNative.png){width=200} ![Spring Boot](Images/Springboot.png){width=200} ![Hibernate](Images/Hibernate.png){width=200}
+ ![ReactNative](Images/ReactNative.png =200x) ![SpringBoot](Images/Springboot.png =200x) ![Hibernate](Images/Hibernate.png =200x)
 
 - **React Native y Expo**: Utilizados para el desarrollo de la interfaz de usuario móvil.
 - **Spring Boot**: Framework utilizado para el desarrollo del backend de la API.
@@ -52,7 +52,7 @@ Estamos todos muy contentos con el resultado final de la app, ya que hemos conse
 
 La pantalla de **Inicio de Sesión** permite a los usuarios iniciar sesión en la aplicación.
 
-![Inicio de Sesión](Images/Login.png){width=300}
+![Inicio de Sesión](Images/Login.png =300x)
 
 #### Funcionalidades:
 
@@ -68,7 +68,7 @@ La pantalla de **Inicio de Sesión** permite a los usuarios iniciar sesión en l
 
 La pantalla de **Registro** permite a los usuarios crear una nueva cuenta en la aplicación.
 
-![Registro](Images/SignUp.png){width=300}
+![Registro](Images/SignUp.png =300x)
 
 #### Funcionalidades:
 
@@ -83,7 +83,7 @@ La pantalla de **Registro** permite a los usuarios crear una nueva cuenta en la 
 
 La pantalla de **Inicio** es la página principal de la aplicación, donde los usuarios pueden ver su progreso total y la estatua diaria destacada.
 
-![Inicio](Images/Home.png){width=300}
+![Inicio](Images/Home.png =300x)
 
 #### Funcionalidades:
 
@@ -99,7 +99,7 @@ La pantalla de **Inicio** es la página principal de la aplicación, donde los u
 
 La pantalla de **Lista de Amigos** permite a los usuarios ver su lista de amigos y buscar nuevos amigos.
 
-![Lista de Amigos](Images/Friends.png){width=300}
+![Lista de Amigos](Images/Friends.png =300x)
 
 #### Funcionalidades:
 
@@ -117,7 +117,7 @@ La pantalla de **Lista de Amigos** permite a los usuarios ver su lista de amigos
 
 La pantalla de **Mapa** muestra una vista del mapa con marcadores que representan las ubicaciones de las estatuas.
 
-![Mapa](Images/Mapa.png){width=300}
+![Mapa](Images/Mapa.png =300x)
 
 #### Funcionalidades:
 
@@ -132,7 +132,7 @@ La pantalla de **Mapa** muestra una vista del mapa con marcadores que representa
 
 La pantalla de **Información de Estatua** muestra detalles sobre una estatua específica, incluyendo su imagen, título, autor, fecha, ubicación, descripción y material.
 
-![Información de Estatua](Images/Estatua.png){width=300}
+![Información de Estatua](Images/Estatua.png =300x)
 
 #### Funcionalidades:
 
