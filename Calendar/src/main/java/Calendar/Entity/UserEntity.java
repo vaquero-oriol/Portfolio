@@ -1,0 +1,27 @@
+package Calendar.Entity;
+
+import jakarta.persistence.*;
+import lombok.Data;
+
+import java.util.List;
+
+@Entity
+@Table(name="User")
+@Data
+public class UserEntity {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="Id")
+    private int Id;
+    @Column(name = "Name")
+    private String name;
+    @Column(name="Password")
+    private String password;
+    @OneToMany(mappedBy = "user")
+    private List<NotesEntity> notes;
+    @OneToMany(mappedBy = "user")
+    private List<EventEntity> events;
+
+
+
+}
