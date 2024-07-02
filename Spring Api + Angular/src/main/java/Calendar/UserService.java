@@ -28,7 +28,6 @@ public class UserService {
         return ResponseEntity.ok(user);
         }else{
             return ResponseEntity.badRequest().body("User already Exists");
-
         }
 
     }
