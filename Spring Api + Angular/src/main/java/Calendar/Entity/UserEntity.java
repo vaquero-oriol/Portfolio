@@ -22,6 +22,9 @@ public class UserEntity {
     @OneToMany(mappedBy = "user")
     private List<EventEntity> events;
 
-
+public UserEntity(String name,String password){
+    this.name=name;
+    this.password=password;
+}
 
 }
