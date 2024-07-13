@@ -16,7 +16,7 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
-    public ResponseEntity<?> CraeteUSer(UserRequest userRequest){
+    public ResponseEntity<?> CreateUSer(UserRequest userRequest){
 
         if(userRequest.getName()!=null && userRequest.getPassword()!=null){
 

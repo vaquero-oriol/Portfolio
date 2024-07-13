@@ -1,0 +1,113 @@
+/* Contenedor principal del formulario */
+.signup-container {
+    display: flex;
+    flex-direction: column; /* Alinea los elementos verticalmente */
+    justify-content: flex-start; /* Alinea al inicio verticalmente */
+    align-items: center;
+    height: 100vh;
+    background-color: #faf3d6; /* Fondo amarillo pastel */
+    font-family: Arial, sans-serif; /* Familia tipográfica */
+ 
+}
+
+/* Formulario */
+.signup-form {
+    margin-top: 300px;
+    background-color: #ecfcff; /* Fondo blanco */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    text-align: center; /* Centra el contenido del formulario */
+}
+
+/* Título del formulario */
+.signup-form h1.title {
+    font-size: 36px; /* Tamaño del título */
+    color: #555; /* Color del texto del título */
+}
+.title{
+ 
+    color: black; /* Color del texto blanco */
+    text-align: center; /* Centrar el texto */
+    padding: 20px; /* Espaciado interno */
+    margin-bottom: 20px; /* Margen inferior */
+    font-size: 36px; /* Tamaño de fuente grande */
+    font-weight: bold; /* Texto en negrita */
+   
+}
+.title-container{
+    margin-top: 30px;
+    margin-bottom: -40px;
+}
+
+/* Contenedor del avatar */
+.avatar {
+    text-align: center;
+    margin-top: -65px;
+}
+
+/* Imagen del avatar */
+.avatar img {
+    width: 100px; /* Tamaño del icono */
+    height: auto; /* Mantén la proporción */
+    border-radius: 50%; /* Forma circular */
+}
+
+/* Grupo de formulario */
+.form-inp {
+    margin-bottom: 15px;
+}
+
+/* Etiqueta del formulario */
+label {
+    font-weight: bold;
+    color: #555; /* Color del texto de la etiqueta */
+}
+
+/* Estilo de los inputs */
+.form-control {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Evita que el padding afecte al ancho total */
+}
+
+/* Estilo del botón de registro */
+.SignupButt {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.signupButt {
+    background-color: #f9b115; /* Color de fondo del botón (amarillo pastel) */
+    color: #fff; /* Color del texto del botón */
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.signupButt:hover {
+    background-color: #e0a312; /* Color de fondo del botón al pasar el ratón */
+}
+
+/* Mensaje de login */
+.login {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.login a {
+    color: #f9b115; /* Color del enlace de login (amarillo pastel) */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.login a:hover {
+    color: #e0a312; /* Color del enlace de login al pasar el ratón */
+}
