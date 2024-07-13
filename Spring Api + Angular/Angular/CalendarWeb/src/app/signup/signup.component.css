@@ -13,7 +13,7 @@
 /* Formulario */
 .signup-form {
     margin-top: 300px;
-    background-color: #ecfcff; /* Fondo blanco */
+    background-color: #ffc831; /* Fondo blanco */
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -44,7 +44,8 @@
 /* Contenedor del avatar */
 .avatar {
     text-align: center;
-    margin-top: -65px;
+    margin-top: -140px;
+    margin-bottom:50px ;
 }
 
 /* Imagen del avatar */
@@ -57,13 +58,11 @@
 /* Grupo de formulario */
 .form-inp {
     margin-bottom: 15px;
+    text-align: left;
+    
 }
 
-/* Etiqueta del formulario */
-label {
-    font-weight: bold;
-    color: #555; /* Color del texto de la etiqueta */
-}
+
 
 /* Estilo de los inputs */
 .form-control {
@@ -72,6 +71,7 @@ label {
     font-size: 16px;
     border: 1px solid #ccc;
     border-radius: 4px;
+    margin-top: 10px;
     box-sizing: border-box; /* Evita que el padding afecte al ancho total */
 }
 
@@ -103,11 +103,13 @@ label {
 }
 
 .login a {
-    color: #f9b115; /* Color del enlace de login (amarillo pastel) */
+    color: #041dbb; /* Color del enlace de login (amarillo pastel) */
     text-decoration: none;
     transition: color 0.3s ease;
+    font-weight: bold;
+
 }
 
 .login a:hover {
-    color: #e0a312; /* Color del enlace de login al pasar el ratón */
+    color: #064eb9; /* Color del enlace de login al pasar el ratón */
 }
