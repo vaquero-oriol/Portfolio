@@ -10,9 +10,7 @@ public class UserRequest {
     private String name;
     @NotEmpty(message = "Password cannot be empty")
     private String password;
-    @NotEmpty(message = "Confirm Password cannot be empty")
 
-    private String confirmPassword;
 
 
 

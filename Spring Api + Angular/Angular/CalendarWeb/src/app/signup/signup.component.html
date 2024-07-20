@@ -1,32 +1,35 @@
-<div class="signup-container">
+<div class="container">
     <div class="title-container">
-        <h1 class="title">WebCalendar</h1>
+        <h1 class="title">Web Calendar</h1>
     </div>
-    <div class="signup-form">
+    <div class="form">
         <div class="avatar">
             <img src="https://eilondon.com/wp-content/uploads/2022/03/Account-User-PNG-Photo.png" alt="Login Avatar">
         </div>
-        <h2>Create an account</h2>
+        <h1>Create an account</h1>
 
-        <div class="inputs-container">
-            <form (submit)="signUp(userData)">
-                <div class="form-inp">
-                    <input type="text" name="name" class="form-control" placeholder="Name" required>
-                </div>
-                <div class="form-inp">
-                    <input type="password" name="Password" class="form-control" placeholder="Password" required>
-                </div>
-                <div class="form-inp">
-                    <input type="password" name="ConfPassword" class="form-control" placeholder="Confirm password" required>
-                </div>
-                <div class="SignupButt">
-                    <button type="submit" class="signupButt">Sign Up</button>
-                </div>
-
-                <div class="text-center login">
-                    Already have an account? <a routerLink="/login">Log in</a> here.
-                </div>
-
+        <div class="form-inp">
+            <form [formGroup]="userDataForm" (ngSubmit)="signUp()">
+                <mat-form-field>
+                  <mat-label>Name</mat-label>
+                  <input matInput formControlName="name">
+                  <mat-error *ngIf="userDataForm.get('name')?.hasError('required')">Name is required</mat-error>
+                </mat-form-field>
+              
+                <mat-form-field>
+                  <mat-label>Password</mat-label>
+                  <input matInput formControlName="password" type="password">
+                  <mat-error *ngIf="userDataForm.get('password')?.hasError('required')">Password is required</mat-error>
+                </mat-form-field>
+              
+                <mat-form-field>
+                  <mat-label>Confirm Password</mat-label>
+                  <input matInput formControlName="confPassword" type="password">
+                  <mat-error *ngIf="userDataForm.get('confPassword')?.hasError('required')">Confirm Password is required</mat-error>
+                </mat-form-field>
+              
+                <button mat-raised-button color="primary" type="submit">Sign Up</button>
+                <p class="" > Already have an Account? <a href="/login">Log in</a></p>
             </form>
         </div>
     </div>
