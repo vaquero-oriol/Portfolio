@@ -5,7 +5,7 @@ import { LoginComponent } from './login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input'; // Asegúrate de importar otros módulos necesarios
+import { MatInputModule } from '@angular/material/input'; 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 export const routes: Routes = [
@@ -24,7 +24,7 @@ export const routes: Routes = [
     BrowserAnimationsModule
   ],
   declarations: [
-    SignupComponent,
+    SignupComponent,LoginComponent
     
   ],
   exports: [RouterModule]

@@ -18,7 +18,7 @@
     font-size: 36px; 
     color: #555; 
 }button {
-    background-color: #ffe37c;
+    background-color: #914b0b;
     color: #fff;
     border: none;
     border-radius: 4px;
@@ -30,7 +30,7 @@
     margin-left: 36%;
   }
   button:hover {
-    background-color: #a38131;
+    background-color: #ff8827;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
   }
   p{

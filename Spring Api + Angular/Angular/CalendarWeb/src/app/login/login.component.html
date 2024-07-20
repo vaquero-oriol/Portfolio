@@ -1,1 +1,32 @@
-<p>This is Login :P</p>
+<div class="container">
+    <div class="title-container">
+        <h1 class="title">Web Calendar</h1>
+    </div>
+    <div class="form">
+        <div class="avatar">
+            <img src="https://eilondon.com/wp-content/uploads/2022/03/Account-User-PNG-Photo.png" alt="Login Avatar">
+        </div>
+        <h1>Log in</h1>
+
+        <div class="form-inp">
+            <form [formGroup]="userDataForm" (ngSubmit)="login()">
+                <mat-form-field>
+                  <mat-label>Name</mat-label>
+                  <input matInput formControlName="name">
+                  <mat-error *ngIf="userDataForm.get('name')?.hasError('required')">Name is required</mat-error>
+                </mat-form-field>
+              
+                <mat-form-field>
+                  <mat-label>Password</mat-label>
+                  <input matInput formControlName="password" type="password">
+                  <mat-error *ngIf="userDataForm.get('password')?.hasError('required')">Password is required</mat-error>
+                </mat-form-field>
+              
+              
+              
+                <button mat-raised-button color="primary" type="submit">Log in</button>
+                <p class="" > Don't have an account? Create one <a href="/sign-up">Sign up</a></p>
+            </form>
+        </div>
+    </div>
+</div>
