@@ -7,11 +7,13 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input'; 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MainScreenComponent } from './main-screen/main-screen.component';
 
 export const routes: Routes = [
   { path: '', component: SignupComponent },
   { path: 'sign-up', component: SignupComponent },
-  { path: 'login', component: LoginComponent }
+  { path: 'login', component: LoginComponent },
+  {path: 'main-screen',component:MainScreenComponent}
 ];
 
 @NgModule({
@@ -24,7 +26,7 @@ export const routes: Routes = [
     BrowserAnimationsModule
   ],
   declarations: [
-    SignupComponent,LoginComponent
+    SignupComponent,LoginComponent,MainScreenComponent
     
   ],
   exports: [RouterModule]

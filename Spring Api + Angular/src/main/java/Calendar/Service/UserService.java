@@ -3,19 +3,12 @@ package Calendar.Service;
 import Calendar.Entity.Request.UserRequest;
 import Calendar.Entity.UserEntity;
 import Calendar.Repository.UserRepository;
+import Calendar.Utils.Exceptions;
+import Calendar.Utils.Result;
 import jakarta.validation.Valid;
-import org.apache.catalina.User;
-import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.validation.annotation.Validated;
-
-import javax.swing.text.html.Option;
-import java.util.Optional;
 
 @Service
 public class UserService {
@@ -28,24 +21,39 @@ public class UserService {
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
     }
-    public ResponseEntity<?> CreateUSer(@Valid UserRequest userRequest){
-    try {
 
-    if (userRequest.getName() == null || userRequest.getPassword() == null) {
-
-        return ResponseEntity.badRequest().body("Not Valid Data");
-    }
-
-        if ((userRepository.findUserByName(userRequest.getName())!=null)) {
-            return ResponseEntity.status(HttpStatus.CONFLICT).body("El usuario ya existe");
+    public Result<UserEntity> createUser(@Valid UserRequest userRequest) {
+        if (userRequest.getName() == null || userRequest.getPassword() == null) {
+            return Result.failure("Not valid data");
         }
 
-    UserEntity newUser = new UserEntity(userRequest.getName(), passwordEncoder.encode(userRequest.getPassword()));
-    userRepository.save(newUser);
+        if (userRepository.findUserByName(userRequest.getName()) != null) {
+            return Result.failure("User already exists");
+        }
 
-    return ResponseEntity.ok("User created correctly");
-}catch (Exception e){
-    return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
-}
+        try {
+            UserEntity newUser = new UserEntity(userRequest.getName(), passwordEncoder.encode(userRequest.getPassword()));
+            userRepository.save(newUser);
+            return Result.succes(newUser);
+        } catch (Exception e) {
+            return Result.failure("Error creating user: " + e.getMessage());
+        }
+    }
+
+    public Result<UserEntity> logIn(@Valid UserRequest userRequest) {
+        if (userRequest.getName() == null || userRequest.getPassword() == null) {
+            return Result.failure("Name or Password is null");
+        }
+
+        UserEntity usuario = userRepository.findUserByName(userRequest.getName());
+        if (usuario == null) {
+            return Result.failure("User doesn't exist");
+        }
+
+        if (!passwordEncoder.matches(userRequest.getPassword(), usuario.getPassword())) {
+            return Result.failure("Credentials are not the same");
+        }
+
+        return Result.succes(usuario);
     }
 }

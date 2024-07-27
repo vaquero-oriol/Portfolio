@@ -24,6 +24,40 @@ export class LoginComponent {
     
     });
   }
-  login(){}
+  login(){
+    if (this.userDataForm.valid) {
+      const userData = this.userDataForm.value;
 
+    this.userService.login(userData).subscribe({
+      next: (response: any) => {
+        console.log("User Loged succesfully", response);
+        this.snackbar.open('Login was succesfull', 'Close', {
+          duration: 3000,
+          horizontalPosition: 'end',
+          verticalPosition: 'top',
+          panelClass: 'custom-snackbar' 
+        }).afterDismissed().subscribe(() => {
+          this.router.navigate(['/main-screen']);
+        });
+      },
+      error: (error: any) => {
+        console.error("Error Login in", error);
+        this.snackbar.open('Error Loging in . Please try again.', 'Close', {
+          duration: 3000,
+          horizontalPosition: 'end',
+          verticalPosition: 'top',
+          panelClass: 'custom-snackbar' 
+        });
+      }
+    });
+  } else {
+    console.error("Form is invalid");
+    this.snackbar.open('Form is invalid. Please check your input.', 'Close', {
+      duration: 3000,
+      horizontalPosition: 'end',
+      verticalPosition: 'top',
+      panelClass: 'custom-snackbar' 
+    });
+  }
+}
 }
