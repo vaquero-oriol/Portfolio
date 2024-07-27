@@ -1,0 +1,110 @@
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+
+body {
+  font-family: Roboto, "Helvetica Neue", Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.mat-app-background {
+  background-color: #E8DDB5;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+.custom-snackbar {
+  font-size: 18px;
+  padding: 30px;
+}
+
+.custom-snackbar .mat-snack-bar-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100vh;
+  background-color: #faf3d6;
+}
+
+.form {
+  margin-top: 300px;
+  background-color: #f3d992;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 400px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  color: black;
+  text-align: center;
+  padding: 20px;
+  margin-bottom: 20px;
+  font-size: 36px;
+  font-weight: bold;
+}
+
+.title-container {
+  margin-top: 30px;
+  margin-bottom: -40px;
+}
+
+.avatar {
+  text-align: center;
+  margin-top: -140px;
+  margin-bottom: 50px;
+}
+
+.avatar img {
+  width: 100px;
+  height: auto;
+  border-radius: 50%;
+}
+
+.form-inp {
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-top: 10px;
+  box-sizing: border-box;
+}
+
+
+
+
+
+.login {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.login a {
+  color: #041dbb;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  font-weight: bold;
+}
+
+.login a:hover {
+  color: #064eb9;
+}
