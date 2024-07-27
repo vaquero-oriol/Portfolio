@@ -9,11 +9,11 @@ public class Result<T> {
         this.error=error;
         this.succes= succes;
     }
-    public static <T> Result<T> succes(T value){
+    public static <T> Result<T> Succes(T value){
         return new Result<>(value,null,true);
     }
 
-    public static <T> Result<T>failure(String error){
+    public static <T> Result<T>Failure(String error){
         return new Result<>(null,error,false);
     }
     public T getValue(){

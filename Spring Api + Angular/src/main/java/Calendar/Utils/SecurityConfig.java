@@ -21,6 +21,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests(authorize -> authorize
                         .requestMatchers("/users/createUser").permitAll()
                         .requestMatchers("/users/login").permitAll()
+                        .requestMatchers("/notes/createnote").permitAll()
                         .anyRequest().authenticated()
                 )
                 .httpBasic(withDefaults());

@@ -36,9 +36,11 @@ export class LoginComponent {
           horizontalPosition: 'end',
           verticalPosition: 'top',
           panelClass: 'custom-snackbar' 
-        }).afterDismissed().subscribe(() => {
-          this.router.navigate(['/main-screen']);
         });
+        
+        setTimeout(() => {
+          this.router.navigate(['/main-screen']);
+        }, 500); // Medio segundo en milisegundos
       },
       error: (error: any) => {
         console.error("Error Login in", error);

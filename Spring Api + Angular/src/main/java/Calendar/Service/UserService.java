@@ -24,36 +24,36 @@ public class UserService {
 
     public Result<UserEntity> createUser(@Valid UserRequest userRequest) {
         if (userRequest.getName() == null || userRequest.getPassword() == null) {
-            return Result.failure("Not valid data");
+            return Result.Failure("Not valid data");
         }
 
         if (userRepository.findUserByName(userRequest.getName()) != null) {
-            return Result.failure("User already exists");
+            return Result.Failure("User already exists");
         }
 
         try {
             UserEntity newUser = new UserEntity(userRequest.getName(), passwordEncoder.encode(userRequest.getPassword()));
             userRepository.save(newUser);
-            return Result.succes(newUser);
+            return Result.Succes(newUser);
         } catch (Exception e) {
-            return Result.failure("Error creating user: " + e.getMessage());
+            return Result.Failure("Error creating user: " + e.getMessage());
         }
     }
 
     public Result<UserEntity> logIn(@Valid UserRequest userRequest) {
         if (userRequest.getName() == null || userRequest.getPassword() == null) {
-            return Result.failure("Name or Password is null");
+            return Result.Failure("Name or Password is null");
         }
 
         UserEntity usuario = userRepository.findUserByName(userRequest.getName());
         if (usuario == null) {
-            return Result.failure("User doesn't exist");
+            return Result.Failure("User doesn't exist");
         }
 
         if (!passwordEncoder.matches(userRequest.getPassword(), usuario.getPassword())) {
-            return Result.failure("Credentials are not the same");
+            return Result.Failure("Credentials are not the same");
         }
 
-        return Result.succes(usuario);
+        return Result.Succes(usuario);
     }
 }

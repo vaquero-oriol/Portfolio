@@ -44,7 +44,7 @@ export class SignupComponent {
         next: (response: any) => {
           console.log("User registered successfully", response);
           this.snackbar.open('Account created successfully!', 'Close', {
-            duration: 3000,
+            duration: 500,
             horizontalPosition: 'end',
             verticalPosition: 'top',
             panelClass: 'custom-snackbar' 

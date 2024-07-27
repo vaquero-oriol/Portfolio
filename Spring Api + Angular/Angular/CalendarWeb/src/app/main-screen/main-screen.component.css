@@ -1,0 +1,26 @@
+button {
+    background-color: #914b0b;
+    color: #fff;
+    border: none;
+    border-radius: 50%; /* Hace el botón circular */
+    padding: 15px; /* Aumenta el padding para igualar el ancho y la altura del botón */
+    font-size: 20px; /* Aumenta el tamaño de la fuente */
+    font-weight: bold; /* Hace el texto en negrita */
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center; 
+    position: fixed; 
+    top: 5%; 
+    right: 10%; 
+    width: 60px; /* Aumenta el ancho del botón para ajustar el texto más grande */
+    height: 60px; /* Aumenta la altura para mantener la forma circular */
+    display: flex;
+    align-items: center; /* Centra el texto verticalmente */
+    justify-content: center; /* Centra el texto horizontalmente */
+    line-height: 1; /* Asegura que el texto no tenga un alto adicional que podría afectar el centrado */
+}
+button:hover {
+    background-color: #ff8827;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}

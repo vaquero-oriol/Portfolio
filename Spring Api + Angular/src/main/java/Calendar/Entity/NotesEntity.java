@@ -21,6 +21,12 @@ public class NotesEntity {
 
     @Column(name="Content")
     private String content;
+    @Column(name="ImageUrls")
+    private String imageUrls;
+
+    @Column(name="AudioUrls")
+    private String audioUrls;
+
     @ManyToOne
     @JoinColumn(name = "user_id")
     private UserEntity user;
