@@ -25,8 +25,8 @@ public class NotesController {
 
 
     @PostMapping("/createnote")
-    public ResponseEntity<?> createNote(@RequestBody NotesRequest user){
-        Result<NotesEntity> note=notesService.createNote(user);
+    public ResponseEntity<?> createNote(@RequestParam int id){
+        Result<NotesEntity> note=notesService.createNote(id);
         if(note.isSucces()){
             return ResponseEntity.ok(note.getValue());
         }else{

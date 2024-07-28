@@ -3,6 +3,7 @@ import { UserService } from '../Service/User/user.service';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { AuthService } from '../Service/Auth/auth-service.service';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +17,9 @@ export class LoginComponent {
     private userService: UserService,
     private router: Router,
     private fb: FormBuilder,
-    private snackbar: MatSnackBar
+    private snackbar: MatSnackBar,
+    private authService: AuthService
+
   ) {
     this.userDataForm = this.fb.group({
       name: ['', Validators.required],
@@ -24,42 +27,72 @@ export class LoginComponent {
     
     });
   }
-  login(){
+  login() {
     if (this.userDataForm.valid) {
       const userData = this.userDataForm.value;
+  
+      this.userService.login(userData).subscribe({
+        next: (response: any) => {
+          console.log("User Logged in successfully", response);
+          
+         
+          if (response!=null) {
 
-    this.userService.login(userData).subscribe({
-      next: (response: any) => {
-        console.log("User Loged succesfully", response);
-        this.snackbar.open('Login was succesfull', 'Close', {
-          duration: 3000,
-          horizontalPosition: 'end',
-          verticalPosition: 'top',
-          panelClass: 'custom-snackbar' 
-        });
-        
-        setTimeout(() => {
-          this.router.navigate(['/main-screen']);
-        }, 500); // Medio segundo en milisegundos
-      },
-      error: (error: any) => {
-        console.error("Error Login in", error);
-        this.snackbar.open('Error Loging in . Please try again.', 'Close', {
-          duration: 3000,
-          horizontalPosition: 'end',
-          verticalPosition: 'top',
-          panelClass: 'custom-snackbar' 
-        });
-      }
-    });
-  } else {
-    console.error("Form is invalid");
-    this.snackbar.open('Form is invalid. Please check your input.', 'Close', {
-      duration: 3000,
-      horizontalPosition: 'end',
-      verticalPosition: 'top',
-      panelClass: 'custom-snackbar' 
-    });
+            console.log("Esto es el response.id",response.id)
+            const userId = response.id;
+            console.log("Este es el user id que le llega",userId)
+
+            
+            if (typeof userId === 'number') { 
+              this.authService.login(userId);
+  
+              this.snackbar.open('Login was successful', 'Close', {
+                duration: 3000,
+                horizontalPosition: 'end',
+                verticalPosition: 'top',
+                panelClass: 'custom-snackbar' 
+              });
+  
+              setTimeout(() => {
+                this.router.navigate(['/main-screen']);
+              }, 500); 
+            } else {
+              console.error('User ID is not a valid number');
+              this.snackbar.open('Error: User ID is not a valid number.', 'Close', {
+                duration: 3000,
+                horizontalPosition: 'end',
+                verticalPosition: 'top',
+                panelClass: 'custom-snackbar' 
+              });
+            }
+          } else {
+            console.error('User ID is null or undefined');
+            this.snackbar.open('Error: User ID is not defined.', 'Close', {
+              duration: 3000,
+              horizontalPosition: 'end',
+              verticalPosition: 'top',
+              panelClass: 'custom-snackbar' 
+            });
+          }
+        },
+        error: (error: any) => {
+          console.error("Error logging in", error);
+          this.snackbar.open('Error logging in. Please try again.', 'Close', {
+            duration: 3000,
+            horizontalPosition: 'end',
+            verticalPosition: 'top',
+            panelClass: 'custom-snackbar' 
+          });
+        }
+      });
+    } else {
+      console.error("Form is invalid");
+      this.snackbar.open('Form is invalid. Please check your input.', 'Close', {
+        duration: 3000,
+        horizontalPosition: 'end',
+        verticalPosition: 'top',
+        panelClass: 'custom-snackbar' 
+      });
+    }
   }
-}
 }

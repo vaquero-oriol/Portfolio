@@ -28,12 +28,12 @@ public class NotesService {
         this.notesRepository = notesRepository;
         this.passwordEncoder=passwordEncoder;
     }
-    public Result<NotesEntity> createNote(NotesRequest user){
+    public Result<NotesEntity> createNote(int id){
 
-        UserEntity validUser= userRepository.findUserById(user.getId());
+        UserEntity validUser= userRepository.findUserById(id);
 
-        if (user.getId() != validUser.getId() || !user.getName().equals(validUser.getName())) {
-        return Result.Failure("Not a valid user");
+        if(validUser ==null){
+            Result.Failure("User does not Exist");
         }
 
         NotesEntity note= new NotesEntity();

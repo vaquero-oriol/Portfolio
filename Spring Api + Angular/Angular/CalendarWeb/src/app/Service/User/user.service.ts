@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { catchError, map } from 'rxjs/operators';
 import { AppConstants } from '../../Constants/constants';
 
 @Injectable({
@@ -39,7 +39,12 @@ export class UserService {
     console.log("Api Url:", this.logInUserUrl);
     console.log("User data:", userData);
 
-    return this.http.post<any>(this.logInUserUrl, userData, { headers, responseType: 'text' as 'json' }).pipe(
+    return this.http.post<any>(this.logInUserUrl, userData, { headers }).pipe(
+      
+      map(response => {
+        console.log("Raw response:", response);
+        return response; 
+      }),
       catchError(error => {
         let errorMessage = 'Unknown error occurred!';
         if (error.error instanceof ErrorEvent) {
@@ -53,3 +58,4 @@ export class UserService {
     );
   }
 }
+
