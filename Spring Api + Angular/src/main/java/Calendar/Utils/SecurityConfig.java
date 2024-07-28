@@ -22,6 +22,7 @@ public class SecurityConfig {
                         .requestMatchers("/users/createUser").permitAll()
                         .requestMatchers("/users/login").permitAll()
                         .requestMatchers("/notes/createnote").permitAll()
+                        .requestMatchers("/notes/getnote").permitAll()
                         .anyRequest().authenticated()
                 )
                 .httpBasic(withDefaults());

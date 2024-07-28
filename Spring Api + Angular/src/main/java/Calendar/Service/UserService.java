@@ -34,7 +34,7 @@ public class UserService {
         try {
             UserEntity newUser = new UserEntity(userRequest.getName(), passwordEncoder.encode(userRequest.getPassword()));
             userRepository.save(newUser);
-            return Result.Succes(newUser);
+            return Result.Success(newUser);
         } catch (Exception e) {
             return Result.Failure("Error creating user: " + e.getMessage());
         }
@@ -54,6 +54,6 @@ public class UserService {
             return Result.Failure("Credentials are not the same");
         }
 
-        return Result.Succes(usuario);
+        return Result.Success(usuario);
     }
 }

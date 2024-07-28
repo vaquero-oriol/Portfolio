@@ -1,6 +1,7 @@
 package Calendar.Controller;
 
 import Calendar.Entity.NotesEntity;
+import Calendar.Entity.Request.NotesRequest;
 import Calendar.Entity.UserEntity;
 import Calendar.Repository.NotesRepository;
 import Calendar.Service.NotesService;
@@ -24,22 +25,22 @@ public class NotesController {
 
 
     @PostMapping("/createnote")
-    public ResponseEntity<?> createNote(@RequestBody UserEntity user){
+    public ResponseEntity<?> createNote(@RequestBody NotesRequest user){
         Result<NotesEntity> note=notesService.createNote(user);
         if(note.isSucces()){
             return ResponseEntity.ok(note.getValue());
         }else{
-            return ResponseEntity.badRequest().body(note.getValue());
+            return ResponseEntity.badRequest().body(note.getError());
         }
     }
 
     @GetMapping("/getnote")
     public ResponseEntity<?>GetNote(@RequestParam int id){
-        Result<NotesEntity>note=notesService.OpenNote(1);
+        Result<NotesEntity>note=notesService.OpenNote(id);
         if(note.isSucces()){
             return ResponseEntity.ok(note.getValue());
         }else{
-            return ResponseEntity.badRequest().body(note.getValue());
+            return ResponseEntity.badRequest().body(note.getError());
         }
     }
 }

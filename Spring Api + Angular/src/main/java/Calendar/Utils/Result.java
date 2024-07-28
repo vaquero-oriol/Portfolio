@@ -9,7 +9,7 @@ public class Result<T> {
         this.error=error;
         this.succes= succes;
     }
-    public static <T> Result<T> Succes(T value){
+    public static <T> Result<T> Success(T value){
         return new Result<>(value,null,true);
     }
 
