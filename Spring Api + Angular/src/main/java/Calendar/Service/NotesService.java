@@ -38,6 +38,8 @@ public class NotesService {
 
         NotesEntity note= new NotesEntity();
 
+        note.setName("Note "+note.getId());
+
         note.setCreationDate(new Date());
         note.setUser(validUser);
 
