@@ -17,8 +17,8 @@ mat-form-field {
 }
 
 .custom-snackbar {
-  font-size: 18px;
-  padding: 30px;
+  font-size: 1rem;
+  padding: 1.875rem;
 }
 
 .custom-snackbar .mat-snack-bar-content {
@@ -30,19 +30,29 @@ mat-form-field {
 .container {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   height: 100vh;
   background-color: #faf3d6;
 }
 
+.avatar {
+  text-align: center;
+  margin-top: -8rem; /* Ajusta el margen inferior para separar el avatar del formulario */
+}
+
+.avatar img {
+  width: 100px;
+  border-radius: 50%;
+}
+
 .form {
-  margin-top: 300px;
   background-color: #f3d992;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  width: 400px;
+  padding: 1.25rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.1);
+  width: 90%;
+  max-width: 400px;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -52,46 +62,33 @@ mat-form-field {
 .title {
   color: black;
   text-align: center;
-  padding: 20px;
-  margin-bottom: 20px;
-  font-size: 36px;
+  font-size: 3rem;
   font-weight: bold;
+  
 }
 
 .title-container {
-  margin-top: 30px;
-  margin-bottom: -40px;
-}
-
-.avatar {
-  text-align: center;
-  margin-top: -140px;
-  margin-bottom: 50px;
-}
-
-.avatar img {
-  width: 100px;
-  height: auto;
-  border-radius: 50%;
+  margin-top: 1.875rem;
+  margin-bottom: 1.25rem;
 }
 
 .form-inp {
-  margin-bottom: 15px;
+  margin-bottom: 0.9375rem;
   text-align: left;
 }
 
 .form-control {
   width: 100%;
-  padding: 10px;
-  font-size: 16px;
+  padding: 0.625rem;
+  font-size: 1rem;
   border: 1px solid #ccc;
-  border-radius: 4px;
-  margin-top: 10px;
+  border-radius: 0.25rem;
+  margin-top: 0.625rem;
   box-sizing: border-box;
 }
 
 .login {
-  margin-top: 10px;
+  margin-top: 0.625rem;
   text-align: center;
 }
 
@@ -105,3 +102,4 @@ mat-form-field {
 .login a:hover {
   color: #064eb9;
 }
+

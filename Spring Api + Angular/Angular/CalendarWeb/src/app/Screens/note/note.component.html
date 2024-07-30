@@ -1,1 +1,9 @@
-<p>note works!</p>
+<div class="note-container">
+    <h1 class="note-title">{{ note?.name || 'Untitled Note' }}</h1>
+  
+    <div id="editor-container" class="editor-container"></div>
+  
+    <div class="note-content" [innerHTML]="note?.content || 'No content available'"></div>
+  
+  </div>
+  

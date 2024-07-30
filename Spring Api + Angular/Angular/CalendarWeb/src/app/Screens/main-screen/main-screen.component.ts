@@ -1,7 +1,7 @@
 import { Component ,ViewEncapsulation} from '@angular/core';
-import { NoteService } from '../Service/Notes/note.service';
+import { NoteService } from '../../Service/Notes/note.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { AuthService } from '../Service/Auth/auth-service.service';
+import { AuthService } from '../../Service/Auth/auth-service.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -35,8 +35,9 @@ createNote(){
           verticalPosition:'top',
           panelClass:'custom-snackbar'
         });
+        const noteid=response.id
         setTimeout(() => {
-          this.router.navigate(['/note']);
+          this.router.navigate(['/note',noteid]);
         }, 500); 
       },
       error: (error: any) => {

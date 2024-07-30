@@ -1,0 +1,30 @@
+.note-container {
+    padding: 20px;
+    max-width: 800px;
+    margin: auto;
+    font-family: Arial, sans-serif;
+  }
+  
+  .note-title {
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+  
+  .note-content {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+  
+  .note-content img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 10px 0;
+  }
+  
+  .note-date {
+    margin-top: 20px;
+    font-size: 0.9rem;
+    color: #555;
+  }
+  

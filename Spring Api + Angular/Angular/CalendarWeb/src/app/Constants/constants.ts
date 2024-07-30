@@ -8,5 +8,6 @@ export class AppConstants {
 
     //NOTES
     public static readonly createNote=AppConstants.API_URL+"notes/createnote";
+    public static readonly getNotebyId= AppConstants.API_URL+"notes/getnote";
     
   }

@@ -14,3 +14,13 @@ button {
     background-color: #ff8827;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
   }
+  
+.title {
+  color: black;
+  text-align: center;
+  padding: 1.25rem;
+  margin-top: -9em;
+  font-size: 3rem;
+  font-weight: bold;
+  
+}
