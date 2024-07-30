@@ -10,7 +10,7 @@ import { ErrorHandlerService } from '../Error/error-service.service'
 export class NoteService {
   private createNoteUrl = AppConstants.createNote;
   private getNoteByIdUrl = AppConstants.getNotebyId;
-
+  private updateNoteurl=AppConstants.updateNote;
   constructor(private http: HttpClient) { }
 
   createNote(userId: number): Observable<any> {
@@ -37,4 +37,18 @@ export class NoteService {
       catchError(ErrorHandlerService.handleError('getNoteById')) 
     );
   }
-}
+  updateNote(noteRequest: { id: number, name: string, content: string }): Observable<any> {
+
+    const headers = { 'Content-Type': 'application/json' };
+
+    return this.http.put<any>(this.updateNoteurl, noteRequest, { headers }).pipe(
+      map(response => {
+        console.log("Response:", response);
+        return response;
+      }),
+      catchError(ErrorHandlerService.handleError('updateNote'))
+    );
+  }
+  }
+  
+

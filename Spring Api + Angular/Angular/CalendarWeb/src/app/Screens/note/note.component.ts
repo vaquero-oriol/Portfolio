@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { NoteService } from '../../Service/Notes/note.service';
 import Quill from 'quill';
 import Clipboard from 'quill/modules/clipboard';
+import { debounceTime, Subject } from 'rxjs';
 
 @Component({
   selector: 'app-note',
@@ -14,6 +15,7 @@ export class NoteComponent implements OnInit, AfterViewInit {
   noteId: number | undefined;
   note: any;
   private editor: Quill | undefined;
+  private contentChanged: Subject<string> = new Subject<string>();
 
   constructor(
     private route: ActivatedRoute,
@@ -28,6 +30,25 @@ export class NoteComponent implements OnInit, AfterViewInit {
         if (this.noteId) {
           this.getNoteDetails();
         }
+      }
+    });
+
+    this.contentChanged.pipe(
+      debounceTime(1000)
+    ).subscribe(content => {
+      if (this.noteId !== undefined) {
+        this.noteService.updateNote({
+          id: this.noteId,
+          name: this.note?.name || '',
+          content: content
+        }).subscribe({
+          next: (response: any) => {
+            console.log("Updated content");
+          },
+          error: (error: any) => {
+            console.error("Error updating content", error);
+          }
+        });
       }
     });
   }
@@ -58,7 +79,7 @@ export class NoteComponent implements OnInit, AfterViewInit {
       modules: {
         toolbar: [
           [{ 'header': '1' }, { 'header': '2' }],
-          [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+          [{ 'list': 'ordered' }, { 'list': 'bullet' }],
           ['bold', 'italic', 'underline'],
           ['link', 'image'],
           [{ 'align': [] }],
@@ -66,7 +87,7 @@ export class NoteComponent implements OnInit, AfterViewInit {
       }
     });
 
-    const clipboard = this.editor.getModule('clipboard') as Clipboard; 
+    const clipboard = this.editor.getModule('clipboard') as Clipboard;
     clipboard.addMatcher('IMG', (node: Node, delta: any) => {
       if (node instanceof HTMLImageElement) {
         const imgUrl = node.getAttribute('src');
@@ -78,9 +99,47 @@ export class NoteComponent implements OnInit, AfterViewInit {
       }
       return delta;
     });
+
+    this.editor.on('text-change', () => {
+      this.contentChanged.next(this.getEditorContent());
+    });
   }
 
   getEditorContent(): string {
     return this.editor ? this.editor.root.innerHTML : '';
+  }
+
+  saveTitle(): void {
+    if (this.noteId !== undefined) {
+      this.noteService.updateNote({
+        id: this.noteId,
+        name: this.note?.name || '',
+        content: this.getEditorContent()
+      }).subscribe({
+        next: (response: any) => {
+          console.log("Title updated");
+        },
+        error: (error: any) => {
+          console.error("Error updating title", error);
+        }
+      });
+    }
+  }
+
+  saveContent(): void {
+    if (this.noteId !== undefined) {
+      this.noteService.updateNote({
+        id: this.noteId,
+        name: this.note?.name || '',
+        content: (document.querySelector('.note-content-editable') as HTMLElement)?.innerHTML || ''
+      }).subscribe({
+        next: (response: any) => {
+          console.log("Content updated");
+        },
+        error: (error: any) => {
+          console.error("Error updating content", error);
+        }
+      });
+    }
   }
 }

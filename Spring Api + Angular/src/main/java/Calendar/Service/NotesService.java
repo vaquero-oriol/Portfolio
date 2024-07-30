@@ -58,4 +58,21 @@ public class NotesService {
             }
           return  Result.Success(note);
     }
+    public Result<NotesEntity>UpdateNote(NotesRequest notesRequest){
+
+        if(notesRequest.getId()<=0){
+            Result.Failure("El id no es valido");
+        }
+        NotesEntity note= notesRepository.findNotesById(notesRequest.getId());
+        if(note ==null){
+            return Result.Failure("Note was not found");
+        }
+        note.setName(notesRequest.getName());
+        note.setContent(notesRequest.getContent());
+
+        notesRepository.save(note);
+
+        return Result.Success(note);
+
+    }
 }

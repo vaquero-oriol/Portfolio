@@ -43,4 +43,13 @@ public class NotesController {
             return ResponseEntity.badRequest().body(note.getError());
         }
     }
+    @PutMapping("updatenote")
+    public ResponseEntity<?>UpdateNote(@RequestBody NotesRequest notesRequest){
+        Result<NotesEntity> updatedNote=notesService.UpdateNote(notesRequest);
+        if(updatedNote.isSucces()){
+            return ResponseEntity.ok(updatedNote.getValue());
+        }else{
+            return ResponseEntity.badRequest().body(updatedNote.getError());
+        }
+    }
 }

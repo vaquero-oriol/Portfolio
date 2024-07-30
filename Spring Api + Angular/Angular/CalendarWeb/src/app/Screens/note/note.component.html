@@ -1,9 +1,22 @@
 <div class="note-container">
-    <h1 class="note-title">{{ note?.name || 'Untitled Note' }}</h1>
-  
-    <div id="editor-container" class="editor-container"></div>
-  
-    <div class="note-content" [innerHTML]="note?.content || 'No content available'"></div>
-  
-  </div>
-  
+  <h1 class="note-title">
+    <input 
+      type="text"
+      [(ngModel)]="note.name"
+      (blur)="saveTitle()"
+      (keydown.enter)="saveTitle()"
+      class="note-title-input"
+      autofocus
+    />
+  </h1>
+
+  <div id="editor-container" class="editor-container"></div>
+
+  <div
+    class="note-content-editable"
+    contenteditable="true"
+    (blur)="saveContent()"
+    (keydown.enter)="saveContent()"
+    [innerHTML]="note.content || ''"
+  ></div>
+</div>
