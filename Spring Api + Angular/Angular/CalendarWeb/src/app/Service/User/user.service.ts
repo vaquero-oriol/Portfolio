@@ -21,7 +21,7 @@ export class UserService {
     console.log("Api Url:", this.createuserUrl);
     console.log("User data:", userData);
 
-    return this.http.post<any>(this.createuserUrl, userData, { headers, responseType: 'text' as 'json' }).pipe(
+    return this.http.post<any>(this.createuserUrl, userData, { headers }).pipe(
       catchError(error => {
         let errorMessage = 'Unknown error occurred!';
         if (error.error instanceof ErrorEvent) {

@@ -5,6 +5,9 @@
     font-weight: bold;
 
 }
+.form-inp {
+  margin-top: 3rem; 
+}
 
 .login a:hover {
     color: #064eb9; 

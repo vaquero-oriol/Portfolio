@@ -44,9 +44,10 @@ export class SignupComponent {
 
       this.userService.signup(userData).subscribe({
         next: (response: any) => {
-          console.log("User registered successfully", response);
+          console.log("User registered successfully, Response:", response);
 
-          const userId=response.ID
+          const userId = response["id"];
+          console.log("User id:",userId)
           this.authService.signUp(userId)
           
           this.snackbar.open('Account created successfully!', 'Close', {

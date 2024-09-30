@@ -1,5 +1,5 @@
 import { Component, OnInit, AfterViewInit, ElementRef, ViewChild } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { NoteService } from '../../Service/Notes/note.service';
 import Quill from 'quill';
 import Clipboard from 'quill/modules/clipboard';
@@ -19,7 +19,8 @@ export class NoteComponent implements OnInit, AfterViewInit {
 
   constructor(
     private route: ActivatedRoute,
-    private noteService: NoteService
+    private noteService: NoteService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -142,4 +143,9 @@ export class NoteComponent implements OnInit, AfterViewInit {
       });
     }
   }
+  goBack() {
+    this.router.navigate(['/main-screen']);
+  }
+
+  
 }
