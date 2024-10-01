@@ -56,4 +56,16 @@ public class UserService {
 
         return Result.Success(usuario);
     }
+    public Result<UserEntity>getUserName(@Valid int id){
+        if(id==0){
+            return Result.Failure("Id is not Valid");
+
+        }
+        UserEntity user=userRepository.findUserById(id);
+
+        if(user==null){
+            return Result.Failure("User doesn't exist");
+        }
+        return Result.Success(user);
+    }
 }

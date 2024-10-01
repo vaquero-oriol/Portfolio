@@ -1,30 +1,14 @@
+@import 'bulma/css/bulma.css';
 @import '@angular/material/prebuilt-themes/indigo-pink.css';
+@import '~font-awesome/css/font-awesome.css';
+
 
 body {
   font-family: 'Inter', sans-serif;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background-color: #E8DDB5;
-}
-
-.mat-app-background {
-  background-color: #E8DDB5;
-}
-
-mat-form-field {
-  width: 100%;
-}
-
-.custom-snackbar {
-  font-size: 1rem;
-  padding: 1.875rem;
-}
-
-.custom-snackbar .mat-snack-bar-content {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  color: #ffffff; /* Texto claro para mejor contraste */
 }
 
 .container {
@@ -32,80 +16,18 @@ mat-form-field {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  background-color: #faf3d6;
-}
-
-.avatar {
-  text-align: center;
-  margin-top: -8rem; /* Ajusta el margen inferior para separar el avatar del formulario */
-}
-
-.avatar img {
-  width: 100px;
-  border-radius: 50%;
-}
-
-.form {
-  background-color: #f3d992;
-  padding: 1.25rem;
-  border-radius: 0.5rem;
-  box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.1);
-  width: 90%;
-  max-width: 400px;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 1.20rem;;
-}
-
-.title {
-  color: black;
-  text-align: center;
-  font-size: 3rem;
-  font-weight: bold;
+  height: 60rem;
   
 }
 
-.title-container {
-  margin-top: 1.875rem;
-  margin-bottom: 1.25rem;
-}
-
-.form-inp {
-  margin-bottom: .9375rem;
-  text-align: left;
-}
-
-.form-control {
-  width: 100%;
-  padding: 0.625rem;
-  font-size: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 0.25rem;
-  margin-top: 0.925rem;
-  box-sizing: border-box;
-}
-
-.login {
-  margin-top: 0.625rem;
-  text-align: center;
-}
-
-.login a {
-  color: #041dbb;
-  text-decoration: none;
-  transition: color 0.3s ease;
-  font-weight: bold;
-}
-
-.login a:hover {
-  color: #064eb9;
+.avatar img {
+  width: 10rem;
+  border-radius: 50%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 button {
-  background-color: #3498db; 
+  background-color: #00796b; /* Color del botón verde oscuro */
   border: none;
   color: white;
   font-size: 16px;
@@ -113,29 +35,26 @@ button {
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s ease;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  margin-top: 1.5rem;
 }
 
 button:hover {
-  background-color: #2980b9; 
-}
-
-button:focus {
-  outline: none;
+  background-color: #00695c; /* Un tono más oscuro al pasar el mouse */
 }
 
 button:active {
-  transform: scale(0.95); 
+  transform: scale(0.98);
 }
 
+.login a {
+  color: #3498db;
+  text-decoration: none;
+  font-weight: bold;
+}
 
-button.icon-button {
-  border-radius: 50%;
-  padding: 10px;
-  font-size: 24px;
-  width: 40px;
-  height: 40px;
+.login a:hover {
+  color: #2980b9;
+}
+.title{
+  margin-top: 2rem;
 }

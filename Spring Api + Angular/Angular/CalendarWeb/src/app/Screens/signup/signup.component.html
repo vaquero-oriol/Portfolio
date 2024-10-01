@@ -1,36 +1,60 @@
-<div class="container">
-    <div class="title-container">
-        <h1 class="title">Web Calendar</h1>
-    </div>
-    <div class="form">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Calendar</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOM8k+Y6L5p5k5A3Tg9d9/IeY6Y6x5kYc9Uk5" crossorigin="anonymous">
+    
+</head>
+<body>
+    <h1 class="title">Web Calendar</h1>
+    <div class="container">
         <div class="avatar">
-            <img src="https://eilondon.com/wp-content/uploads/2022/03/Account-User-PNG-Photo.png" alt="Login Avatar">
+            <img src="https://cdn3.iconfinder.com/data/icons/essential-rounded/64/Rounded-31-512.png" alt="Signup Avatar">
         </div>
-        <h1>Create an account</h1>
 
-        <div class="form-inp">
+        <div class="form">
+            <h1 class="signup-title">Create an account</h1>
             <form [formGroup]="userDataForm" (ngSubmit)="signUp()">
-                <mat-form-field>
-                  <mat-label>Name</mat-label>
-                  <input matInput formControlName="name">
-                  <mat-error *ngIf="userDataForm.get('name')?.hasError('required')">Name is required</mat-error>
-                </mat-form-field>
-              
-                <mat-form-field>
-                  <mat-label>Password</mat-label>
-                  <input matInput formControlName="password" type="password">
-                  <mat-error *ngIf="userDataForm.get('password')?.hasError('required')">Password is required</mat-error>
-                </mat-form-field>
-              
-                <mat-form-field>
-                  <mat-label>Confirm Password</mat-label>
-                  <input matInput formControlName="confPassword" type="password">
-                  <mat-error *ngIf="userDataForm.get('confPassword')?.hasError('required')">Confirm Password is required</mat-error>
-                </mat-form-field>
-              
-                <button mat-raised-button color="primary" type="submit">Sign Up</button>
-                <p class="" > Already have an Account? <a href="/login">Log in</a></p>
+                <div class="field">
+                    <p class="control has-icons-left">
+                        <input class="input" type="text" placeholder="Name" formControlName="name" required>
+                        <span class="icon is-small is-left">
+                            <i class="fas fa-user"></i>
+                        </span>
+                    </p>
+                </div>
+
+                <div class="field">
+                    <p class="control has-icons-left">
+                        <input class="input" type="password" placeholder="Password" formControlName="password" required>
+                        <span class="icon is-small is-left">
+                            <i class="fas fa-lock"></i>
+                        </span>
+                    </p>
+                </div>
+
+                <div class="field">
+                    <p class="control has-icons-left">
+                        <input class="input" type="password" placeholder="Confirm Password" formControlName="confPassword" required>
+                        <span class="icon is-small is-left">
+                            <i class="fas fa-lock"></i>
+                        </span>
+                    </p>
+                </div>
+
+                <div class="field">
+                    <p class="control">
+                        <button class="button is-success" type="submit">
+                            Sign Up
+                        </button>
+                    </p>
+                </div>
+
+                <p class="login">Already have an Account? <a href="/login">Log in</a></p>
             </form>
         </div>
     </div>
-</div>
+</body>
+</html>

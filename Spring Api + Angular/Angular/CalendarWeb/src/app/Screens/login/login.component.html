@@ -1,32 +1,30 @@
+<div class="title-container">
+    <h1 class="title">Web Calendar</h1>
+</div>
 <div class="container">
-    <div class="title-container">
-        <h1 class="title">Web Calendar</h1>
-    </div>
-    <div class="form">
-        <div class="avatar">
-            <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.iconfinder.com%2Ficons%2F2692648%2Faccount_avatar_login_people_sign_up_user_icon&psig=AOvVaw0Bv7y-AClsY_LJlt3oYkp8&ust=1727433070445000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCOj0wuWz4IgDFQAAAAAdAAAAABAE" alt="Login Avatar">
-        </div>
-        <h1>Log in</h1>
+   
 
-        <div class="form-inp">
-            <form [formGroup]="userDataForm" (ngSubmit)="login()">
-                <mat-form-field>
-                  <mat-label>Name</mat-label>
-                  <input matInput formControlName="name">
-                  <mat-error *ngIf="userDataForm.get('name')?.hasError('required')">Name is required</mat-error>
-                </mat-form-field>
-              
-                <mat-form-field>
-                  <mat-label>Password</mat-label>
-                  <input matInput formControlName="password" type="password">
-                  <mat-error *ngIf="userDataForm.get('password')?.hasError('required')">Password is required</mat-error>
-                </mat-form-field>
-              
-              
-              
-                <button mat-raised-button color="primary" type="submit">Log in</button>
-                <p class="" > Don't have an account? Create one <a href="/sign-up">Sign up</a></p>
-            </form>
-        </div>
+    <div class="avatar">
+        <img src="https://cdn3.iconfinder.com/data/icons/essential-rounded/64/Rounded-31-512.png" alt="Login Avatar">
+    </div>
+
+    <div class="form">
+        <h1 class="login-title">Log in</h1>
+        <form [formGroup]="userDataForm" (ngSubmit)="login()">
+            <mat-form-field class="form-inp" appearance="fill">
+                <mat-label>Name</mat-label>
+                <input matInput formControlName="name" required>
+                <mat-error *ngIf="userDataForm.get('name')?.hasError('required')">Name is required</mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="form-inp" appearance="fill">
+                <mat-label>Password</mat-label>
+                <input matInput formControlName="password" type="password" required>
+                <mat-error *ngIf="userDataForm.get('password')?.hasError('required')">Password is required</mat-error>
+            </mat-form-field>
+
+            <button mat-raised-button type="submit" class="submit-button">Log in</button>
+            <p class="login">Don't have an account? Create one <a href="/sign-up">Sign up</a></p>
+        </form>
     </div>
 </div>

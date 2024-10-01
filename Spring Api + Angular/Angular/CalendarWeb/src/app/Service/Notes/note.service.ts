@@ -11,6 +11,8 @@ export class NoteService {
   private createNoteUrl = AppConstants.createNote;
   private getNoteByIdUrl = AppConstants.getNotebyId;
   private updateNoteurl=AppConstants.updateNote;
+  private getallNotes=AppConstants.getAllNotes;
+
   constructor(private http: HttpClient) { }
 
   createNote(userId: number): Observable<any> {
@@ -49,6 +51,18 @@ export class NoteService {
       catchError(ErrorHandlerService.handleError('updateNote'))
     );
   }
+  GetAllNotes(userId:number): Observable<any>{
+    const url=`${this.getallNotes}?id=${userId}`
+
+    return this.http.get<any>(url).pipe(
+      map(response=>{
+        console.log("Response,",response);
+        return response;
+      }),
+      catchError(ErrorHandlerService.handleError('getallNotes'))
+    );
+  }
+  
   }
   
 

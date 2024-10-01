@@ -12,6 +12,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+
 @RestController
 @RequestMapping("/notes")
 public class NotesController {
@@ -43,13 +45,34 @@ public class NotesController {
             return ResponseEntity.badRequest().body(note.getError());
         }
     }
-    @PutMapping("updatenote")
+    @PutMapping("/updatenote")
     public ResponseEntity<?>UpdateNote(@RequestBody NotesRequest notesRequest){
         Result<NotesEntity> updatedNote=notesService.UpdateNote(notesRequest);
         if(updatedNote.isSucces()){
             return ResponseEntity.ok(updatedNote.getValue());
         }else{
             return ResponseEntity.badRequest().body(updatedNote.getError());
+        }
+    }
+
+
+    @GetMapping("/getbytext")
+    public ResponseEntity<?>FilterByText(@RequestParam int id,@RequestBody String text){
+        Result<ArrayList<NotesEntity>>FilteredNotes=notesService.getNotesByText(id,text);
+        if(FilteredNotes.isSucces()){
+            return ResponseEntity.ok(FilteredNotes.getValue());
+        }else{
+            return ResponseEntity.badRequest().body(FilteredNotes.getError());
+        }
+    }
+    @GetMapping("/getallnotes")
+    public ResponseEntity<?>getAllNotes(@RequestParam int id){
+        Result<ArrayList<NotesEntity>>AllNotes= notesService.GetAllNotes(id);
+
+        if(AllNotes.isSucces()){
+            return ResponseEntity.ok(AllNotes.getValue());
+        }else{
+            return ResponseEntity.badRequest().body(AllNotes.getError());
         }
     }
 }

@@ -1,26 +1,165 @@
-button {
-    background-color: #914b0b;
-    color: #fff;
-    border: none;
-    border-radius: 50%; 
-    padding: 15px; 
-    font-size: 20px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center; 
-    position: fixed; 
-    top: 5%; 
-    right: 10%; 
-    width: 60px; 
-    height: 60px; 
-    display: flex;
-    align-items: center;
-    justify-content: center; 
-    line-height: 1;
+.main-screen-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: #2c2c2c;
+  color: #ffffff;
+  min-height: 100vh;
 }
+
+#header {
+  display: flex;
+  padding: 20px;
+  margin-bottom: 20px;
+  background-color: #1a1a1a;
+  border-radius: 0.5rem;
+  width: 100%;
+}
+
+#links {
+  gap: 20px;
+  flex-grow: 1;
+  display: flex;
+}
+
+.link {
+  cursor: pointer;
+  color: #e0e0e0;
+  transition: color 0.3s ease;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+.link:hover {
+  color: #ff8827;
+  background-color: rgba(255, 136, 39, 0.1);
+}
+
+#profile {
+  margin-left: auto;
+  margin-right: 2rem;
+  color: #e0e0e0;
+}
+
+.title {
+  font-size: 2.5rem;
+  margin: 20px 0;
+  text-align: center;
+}
+
+#creation {
+  color: #ffffff;
+  border: none;
+  border-radius: 50%;
+  padding: 15px;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  position: fixed;
+  top: 8%;
+  right: 10%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
 button:hover {
-    background-color: #ff8827;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  background-color: #ff0000;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
+
+#SearchB {
+  margin-top: 0.05rem;
+  width: 5rem;
+  height: 2.5rem;
+}
+
+.notes-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+.note-card {
+  background-color: #2c3e50;
+  color: #ecf0f1;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 300px;
+  padding: 20px;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    
+    .note-buttons {
+      opacity: 1; 
+    }
+  }
+}
+
+.note-buttons {
+  position: absolute; 
+  margin-top: -2.5rem;
+  right: 0.5rem; 
+  display: flex;
+  gap: 10px;
+  opacity: 0; 
+  transition: opacity 0.3s ease;
+}
+
+.delete-button, .favorite-button {
+  background: none;
+  border: none;
+  color: #ffdd57;
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: rgba(255, 221, 87, 0.2);
+  }
+}
+
+.delete-button {
+  color: #e74c3c;
+}
+
+.favorite-button {
+  color: #f1c40f;
+}
+
+.note-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  text-align: center;
+  color: #ffdd57;
+}
+
+.note-preview {
+  font-size: 1rem;
+  line-height: 1.4;
+  color: #bdc3c7;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+

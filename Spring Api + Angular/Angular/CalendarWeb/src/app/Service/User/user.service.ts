@@ -11,6 +11,7 @@ export class UserService {
  
   private createuserUrl = AppConstants.createUser;
   private logInUserUrl = AppConstants.logIn;
+  private userNameUrl=AppConstants.userName
 
 
   constructor(private http: HttpClient) { }
@@ -57,5 +58,29 @@ export class UserService {
       })
     );
   }
+
+  getUserName(id: number): Observable<any> {
+    const headers = { 'Content-Type': 'application/json' };
+    const urlWithId = `${this.userNameUrl}?id=${id}`;
+    console.log("Api Url:", urlWithId);
+    console.log("id:", id);
+  
+    return this.http.get<any>(urlWithId, { headers }).pipe(
+      map(response => {
+        return response;
+      }),
+      catchError(error => {
+        let errorMessage = 'Unknown error occurred!';
+        if (error.error instanceof ErrorEvent) {
+          errorMessage = `Client-side error: ${error.error.message}`;
+        } else {
+          errorMessage = error.error || 'Server error occurred';
+        }
+        console.error('Error in getting user name:', errorMessage);
+        return throwError(errorMessage); 
+      })
+    );
+  }
+  
 }
 

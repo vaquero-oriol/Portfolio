@@ -5,6 +5,8 @@ import Calendar.Entity.UserEntity;
 import Calendar.Service.UserService;
 import Calendar.Utils.Result;
 import jakarta.validation.Valid;
+import org.apache.catalina.User;
+import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -38,6 +40,16 @@ public class UserController {
         if (result.isSucces()) {
             return ResponseEntity.ok(result.getValue());
         } else {
+            return ResponseEntity.badRequest().body(result.getError());
+        }
+    }
+
+    @GetMapping("/name")
+    public ResponseEntity<?>userName(@Valid @RequestParam int id){
+        Result<UserEntity> result=userService.getUserName(id);
+        if(result.isSucces()){
+            return ResponseEntity.ok(result.getValue());
+        }else{
             return ResponseEntity.badRequest().body(result.getError());
         }
     }

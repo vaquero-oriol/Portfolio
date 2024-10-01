@@ -1,5 +1,58 @@
-<div class="main-screen-container">
-    <h1 class="title">Main Screen</h1>
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
-    <button type="button" class="button" (click)="createNote()"> +</button>
+
+</head>
+<div class="main-screen-container">
+  <div id="header">
+    <div id="links">
+      <div class="link">Welcome back {{userName}} !</div>
+      <div class="link"  id="date">Date:{{date}}</div>
+      <div class="link" id="profile">Profile</div>
+    </div>
+    
+
   </div>
+    <h1 class="title">Your Notes</h1>
+
+    <button id="creation"type="button" class="button" (click)="createNote()"> +</button>
+
+  <div class="SearchBar">
+
+
+    <div class="field has-addons">
+      <div class="control">
+        <input class="input" type="text" placeholder="Search notes">
+      </div>
+      <div class="control">
+        <button id="SearchB"class="button is-info">
+          Search
+        </button>
+      </div>
+    </div>  
+
+  </div>
+
+  <div class="notes-container">
+    <div *ngFor="let note of notes" class="note-card">
+      <div class="note-buttons">
+        <button class="delete-button" (click)="deleteNote(note)">
+          <i class="fas fa-trash"></i>
+        </button>
+        <button class="favorite-button" (click)="favoriteNote(note)">
+          <i class="fas fa-star"></i>
+        </button>
+      </div>
+      <h2 class="note-title">{{note.name}}</h2>
+      <p class="note-preview" [innerHTML]="note.content"></p> 
+    </div>
+  </div>
+  
+  
+
+    
+  </div>
+
+
+
+  

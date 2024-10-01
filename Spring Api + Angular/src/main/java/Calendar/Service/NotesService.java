@@ -10,7 +10,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.lang.reflect.Array;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Date;
 
 @Service
@@ -61,7 +63,7 @@ public class NotesService {
     public Result<NotesEntity>UpdateNote(NotesRequest notesRequest){
 
         if(notesRequest.getId()<=0){
-            Result.Failure("El id no es valido");
+           return  Result.Failure("El id no es valido");
         }
         NotesEntity note= notesRepository.findNotesById(notesRequest.getId());
         if(note ==null){
@@ -73,6 +75,34 @@ public class NotesService {
         notesRepository.save(note);
 
         return Result.Success(note);
+    }
+    public Result<ArrayList<NotesEntity>> getNotesByText(int userId,String text){
+        if(userId<=0){
+            return Result.Failure("El id no es valido");
+        }
+        ArrayList<NotesEntity>notesfromUser=notesRepository.FindNotesByUser(userId);
+        ArrayList<NotesEntity>NotesFiltered= new ArrayList<>();
+      for(NotesEntity note: notesfromUser){
+        if(note.getContent().contains(text)){
+            NotesFiltered.add(note);
+        }
 
+      }
+      if(NotesFiltered.isEmpty()){
+          return Result.Failure("No notes were found with that text");
+      }
+      return Result.Success(NotesFiltered);
+    }
+    public Result<ArrayList<NotesEntity>> GetAllNotes(int userId){
+        if(userId<=0){
+            Result.Failure("Cant find the user");
+        }
+        ArrayList<NotesEntity> AllNotes= notesRepository.FindNotesByUser(userId);
+
+        if(AllNotes.isEmpty()){
+            return Result.Failure("You have no notes available");
+        }
+
+        return Result.Success(AllNotes);
     }
 }

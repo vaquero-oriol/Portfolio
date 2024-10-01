@@ -56,3 +56,9 @@ body {
   margin-left: 2rem;
   margin-top: 2rem;
 }
+.control {
+  position: absolute; 
+  top: 2rem; 
+  right: 2rem; 
+}
+
