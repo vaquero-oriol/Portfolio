@@ -1,14 +1,17 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 
-<div class="botonSalir">
-  <button type="button" class="button" (click)="goBack()">
-    &#8592;
-  </button>
+<div class="button-container">
+  <div class="botonSalir">
+    <button type="button" class="button" (click)="goBack()">
+      &#8592;
+    </button>
+  </div>
+  <div class="control">
+    <button class="button is-primary" id="save" (click)="saveContent()">Save</button>
+  </div>
 </div>
-<div class="control">
-  <button class="button is-primary" id="save" (click)="saveContent()">Save</button>
-</div>
+
 <div class="note-container">
   <h1 class="note-title">
     <input 
