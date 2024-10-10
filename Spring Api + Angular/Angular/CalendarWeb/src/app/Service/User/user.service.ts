@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { catchError, map } from 'rxjs/operators';
 import { AppConstants } from '../../Constants/constants';
 
 @Injectable({
@@ -11,6 +11,7 @@ export class UserService {
  
   private createuserUrl = AppConstants.createUser;
   private logInUserUrl = AppConstants.logIn;
+  private userNameUrl=AppConstants.userName
 
 
   constructor(private http: HttpClient) { }
@@ -21,7 +22,7 @@ export class UserService {
     console.log("Api Url:", this.createuserUrl);
     console.log("User data:", userData);
 
-    return this.http.post<any>(this.createuserUrl, userData, { headers, responseType: 'text' as 'json' }).pipe(
+    return this.http.post<any>(this.createuserUrl, userData, { headers }).pipe(
       catchError(error => {
         let errorMessage = 'Unknown error occurred!';
         if (error.error instanceof ErrorEvent) {
@@ -39,7 +40,12 @@ export class UserService {
     console.log("Api Url:", this.logInUserUrl);
     console.log("User data:", userData);
 
-    return this.http.post<any>(this.logInUserUrl, userData, { headers, responseType: 'text' as 'json' }).pipe(
+    return this.http.post<any>(this.logInUserUrl, userData, { headers }).pipe(
+      
+      map(response => {
+        console.log("Raw response:", response);
+        return response; 
+      }),
       catchError(error => {
         let errorMessage = 'Unknown error occurred!';
         if (error.error instanceof ErrorEvent) {
@@ -52,4 +58,29 @@ export class UserService {
       })
     );
   }
+
+  getUserName(id: number): Observable<any> {
+    const headers = { 'Content-Type': 'application/json' };
+    const urlWithId = `${this.userNameUrl}?id=${id}`;
+    console.log("Api Url:", urlWithId);
+    console.log("id:", id);
+  
+    return this.http.get<any>(urlWithId, { headers }).pipe(
+      map(response => {
+        return response;
+      }),
+      catchError(error => {
+        let errorMessage = 'Unknown error occurred!';
+        if (error.error instanceof ErrorEvent) {
+          errorMessage = `Client-side error: ${error.error.message}`;
+        } else {
+          errorMessage = error.error || 'Server error occurred';
+        }
+        console.error('Error in getting user name:', errorMessage);
+        return throwError(errorMessage); 
+      })
+    );
+  }
+  
 }
+

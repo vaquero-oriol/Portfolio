@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Calendar Signup</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
+</head>
+<body>
+    <h1 class="title">Web Calendar</h1>
+    <div class="container">
+        <div class="avatar">
+            <img src="https://cdn3.iconfinder.com/data/icons/essential-rounded/64/Rounded-31-512.png" alt="Signup Avatar">
+        </div>
+
+        <div class="form">
+            <h1 class="signup-title">Create an account</h1>
+            <form [formGroup]="userDataForm" (ngSubmit)="signUp()">
+                <div class="field">
+                    <p class="control has-icons-left">
+                        <input class="input" type="text" placeholder="Name" formControlName="name" required>
+                        <span class="icon is-small is-left">
+                            <i class="fas fa-user"></i>
+                        </span>
+                    </p>
+                </div>
+
+                <div class="field">
+                    <p class="control has-icons-left has-icons-right">
+                      <input class="input" type="password" placeholder="Password" formControlName="password">
+                      <span class="icon is-small is-left">
+                        <i class="fas fa-lock"></i>
+                      </span>
+                      <span id="btn_toggle" class="icon is-small is-right" style="pointer-events: all; cursor: pointer" (click)="togglePassword()">
+                        <i [ngClass]="isPasswordVisible ? 'fa fa-eye-slash' : 'fa fa-eye'"></i>
+                    </span>
+                    </p>
+                  </div>
+
+                  <div class="field">
+                    <p class="control has-icons-left has-icons-right">
+                        <input class="input" type="password" placeholder="Confirm Password" formControlName="confPassword" [type]="isPasswordVisible ? 'text' : 'password'"
+                      >
+                      <span class="icon is-small is-left">
+                        <i class="fas fa-lock"></i>
+                      </span>
+                      <span id="btn_toggle" class="icon is-small is-right" style="pointer-events: all; cursor: pointer" (click)="togglePassword()">
+                        <i [ngClass]="isPasswordVisible ? 'fa fa-eye-slash' : 'fa fa-eye'"></i>
+                    </span>
+                    </p>
+                  </div>
+
+                <div class="field">
+                    <p class="control">
+                        <button class="button is-success" type="submit">
+                            Sign Up
+                        </button>
+                    </p>
+                </div>
+
+                <p class="login">Already have an Account? <a href="/login">Log in</a></p>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,5 +1,6 @@
 package Calendar.Entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -21,6 +22,13 @@ public class NotesEntity {
 
     @Column(name="Content")
     private String content;
+    @Column(name="ImageUrls")
+    private String imageUrls;
+
+    @Column(name="AudioUrls")
+    private String audioUrls;
+    @JsonBackReference
+
     @ManyToOne
     @JoinColumn(name = "user_id")
     private UserEntity user;

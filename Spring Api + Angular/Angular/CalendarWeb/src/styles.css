@@ -1,110 +1,60 @@
+@import 'bulma/css/bulma.css';
 @import '@angular/material/prebuilt-themes/indigo-pink.css';
+@import '~font-awesome/css/font-awesome.css';
+
 
 body {
-  font-family: Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-family: 'Inter', sans-serif;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
-
-.mat-app-background {
-  background-color: #E8DDB5;
-}
-
-mat-form-field {
-  width: 100%;
-}
-
-.custom-snackbar {
-  font-size: 18px;
-  padding: 30px;
-}
-
-.custom-snackbar .mat-snack-bar-content {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  color: #ffffff; /* Texto claro para mejor contraste */
 }
 
 .container {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
-  height: 100vh;
-  background-color: #faf3d6;
-}
-
-.form {
-  margin-top: 300px;
-  background-color: #f3d992;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  width: 400px;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.title {
-  color: black;
-  text-align: center;
-  padding: 20px;
-  margin-bottom: 20px;
-  font-size: 36px;
-  font-weight: bold;
-}
-
-.title-container {
-  margin-top: 30px;
-  margin-bottom: -40px;
-}
-
-.avatar {
-  text-align: center;
-  margin-top: -140px;
-  margin-bottom: 50px;
+  height: 60rem;
+  
 }
 
 .avatar img {
-  width: 100px;
-  height: auto;
+  width: 10rem;
   border-radius: 50%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.form-inp {
-  margin-bottom: 15px;
-  text-align: left;
-}
-
-.form-control {
-  width: 100%;
-  padding: 10px;
+button {
+  background-color: #00796b; /* Color del botón verde oscuro */
+  border: none;
+  color: white;
   font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  margin-top: 10px;
-  box-sizing: border-box;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-top: 1.5rem;
 }
 
+button:hover {
+  background-color: #00695c; /* Un tono más oscuro al pasar el mouse */
+}
 
-
-
-
-.login {
-  margin-top: 10px;
-  text-align: center;
+button:active {
+  transform: scale(0.98);
 }
 
 .login a {
-  color: #041dbb;
+  color: #3498db;
   text-decoration: none;
-  transition: color 0.3s ease;
   font-weight: bold;
 }
 
 .login a:hover {
-  color: #064eb9;
+  color: #2980b9;
+}
+.title{
+  margin-top: 2rem;
 }

@@ -1,5 +1,6 @@
 package Calendar.Entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -20,6 +21,8 @@ public class UserEntity {
     private String name;
     @Column(name="Password")
     private String password;
+    @JsonManagedReference
+
     @OneToMany(mappedBy = "user")
     private List<NotesEntity> notes;
     @OneToMany(mappedBy = "user")

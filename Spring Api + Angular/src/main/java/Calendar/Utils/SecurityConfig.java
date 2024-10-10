@@ -21,6 +21,11 @@ public class SecurityConfig {
                 .authorizeHttpRequests(authorize -> authorize
                         .requestMatchers("/users/createUser").permitAll()
                         .requestMatchers("/users/login").permitAll()
+                        .requestMatchers("/users/name").permitAll()
+                        .requestMatchers("/notes/createnote").permitAll()
+                        .requestMatchers("/notes/getnote").permitAll()
+                        .requestMatchers("/notes/updatenote").permitAll()
+                        .requestMatchers("/notes/getallnotes").permitAll()
                         .anyRequest().authenticated()
                 )
                 .httpBasic(withDefaults());
