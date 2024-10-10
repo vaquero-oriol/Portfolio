@@ -39,3 +39,6 @@ mat-form-field {
   height: 2.5;
 }
 
+.icon.is-right {
+  cursor: pointer;
+}

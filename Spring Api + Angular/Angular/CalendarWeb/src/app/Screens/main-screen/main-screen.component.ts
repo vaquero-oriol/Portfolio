@@ -53,7 +53,8 @@ export class MainScreenComponent {
     }
     
   }
-  openNote(){
+  openNote(id:number){
+    this.router.navigate(['/note',id])
     
   }
 

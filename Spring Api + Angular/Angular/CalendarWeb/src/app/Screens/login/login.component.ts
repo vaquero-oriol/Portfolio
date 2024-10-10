@@ -12,6 +12,7 @@ import { AuthService } from '../../Service/Auth/auth-service.service';
 })
 export class LoginComponent {
   userDataForm: FormGroup;
+  isPasswordVisible:boolean= false;
 
   constructor(
     private userService: UserService,
@@ -27,6 +28,10 @@ export class LoginComponent {
     
     });
   }
+togglePassword(){
+  this.isPasswordVisible=!this.isPasswordVisible;
+}
+  
   login() {
     if (this.userDataForm.valid) {
       const userData = this.userDataForm.value;

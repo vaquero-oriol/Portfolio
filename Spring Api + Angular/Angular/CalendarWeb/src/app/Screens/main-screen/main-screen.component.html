@@ -34,7 +34,7 @@
   </div>
 
   <div class="notes-container">
-    <div *ngFor="let note of notes" class="note-card">
+      <div *ngFor="let note of notes" class="note-card" (click)="openNote(note.id)">
       <div class="note-buttons">
         <button class="delete-button" (click)="deleteNote(note)">
           <i class="fas fa-trash"></i>

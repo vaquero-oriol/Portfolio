@@ -1,30 +1,78 @@
-<div class="title-container">
-    <h1 class="title">Web Calendar</h1>
-</div>
-<div class="container">
-   
-
-    <div class="avatar">
-        <img src="https://cdn3.iconfinder.com/data/icons/essential-rounded/64/Rounded-31-512.png" alt="Login Avatar">
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web Calendar Login</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="title-container">
+      <h1 class="title">Web Calendar</h1>
     </div>
+    <div class="container">
+      <div class="avatar">
+        <img
+          src="https://cdn3.iconfinder.com/data/icons/essential-rounded/64/Rounded-31-512.png"
+          alt="Login Avatar"
+        />
+      </div>
 
-    <div class="form">
+      <div class="form">
         <h1 class="login-title">Log in</h1>
         <form [formGroup]="userDataForm" (ngSubmit)="login()">
-            <mat-form-field class="form-inp" appearance="fill">
-                <mat-label>Name</mat-label>
-                <input matInput formControlName="name" required>
-                <mat-error *ngIf="userDataForm.get('name')?.hasError('required')">Name is required</mat-error>
-            </mat-form-field>
+          <div class="field">
+            <p class="control has-icons-left">
+              <input
+                class="input"
+                type="text"
+                placeholder="Name"
+                formControlName="name"
+                required
+              />
+              <span class="icon is-small is-left">
+                <i class="fas fa-user"></i>
+              </span>
+            </p>
+          </div>
 
-            <mat-form-field class="form-inp" appearance="fill">
-                <mat-label>Password</mat-label>
-                <input matInput formControlName="password" type="password" required>
-                <mat-error *ngIf="userDataForm.get('password')?.hasError('required')">Password is required</mat-error>
-            </mat-form-field>
+          <div class="field">
+            <p class="control has-icons-left has-icons-right">
+              <input
+                id="password"
+                class="input"
+                type="password"
+                placeholder="Password"
+                formControlName="password"
+                [type]="isPasswordVisible ? 'text' : 'password'"
 
-            <button mat-raised-button type="submit" class="submit-button">Log in</button>
-            <p class="login">Don't have an account? Create one <a href="/sign-up">Sign up</a></p>
+              />
+              <span class="icon is-small is-left">
+                <i class="fas fa-lock"></i>
+              </span>
+            
+             <span id="btn_toggle" class="icon is-small is-right" style="pointer-events: all; cursor: pointer" (click)="togglePassword()">
+                <i [ngClass]="isPasswordVisible ? 'fa fa-eye-slash' : 'fa fa-eye'"></i>
+            </span>
+            </p>
+          </div>
+
+          <button
+            mat-raised-button
+            type="submit"
+            class="submit-button"
+          >
+            Log in
+          </button>
+          <p class="login">
+            Don't have an account? Create one
+            <a href="/sign-up">Sign up</a>
+          </p>
         </form>
+      </div>
     </div>
-</div>
+  </body>
+</html>

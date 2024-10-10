@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Calendar</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOM8k+Y6L5p5k5A3Tg9d9/IeY6Y6x5kYc9Uk5" crossorigin="anonymous">
+    <title>Web Calendar Signup</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     
 </head>
 <body>
@@ -27,22 +27,29 @@
                 </div>
 
                 <div class="field">
-                    <p class="control has-icons-left">
-                        <input class="input" type="password" placeholder="Password" formControlName="password" required>
-                        <span class="icon is-small is-left">
-                            <i class="fas fa-lock"></i>
-                        </span>
+                    <p class="control has-icons-left has-icons-right">
+                      <input class="input" type="password" placeholder="Password" formControlName="password">
+                      <span class="icon is-small is-left">
+                        <i class="fas fa-lock"></i>
+                      </span>
+                      <span id="btn_toggle" class="icon is-small is-right" style="pointer-events: all; cursor: pointer" (click)="togglePassword()">
+                        <i [ngClass]="isPasswordVisible ? 'fa fa-eye-slash' : 'fa fa-eye'"></i>
+                    </span>
                     </p>
-                </div>
+                  </div>
 
-                <div class="field">
-                    <p class="control has-icons-left">
-                        <input class="input" type="password" placeholder="Confirm Password" formControlName="confPassword" required>
-                        <span class="icon is-small is-left">
-                            <i class="fas fa-lock"></i>
-                        </span>
+                  <div class="field">
+                    <p class="control has-icons-left has-icons-right">
+                        <input class="input" type="password" placeholder="Confirm Password" formControlName="confPassword" [type]="isPasswordVisible ? 'text' : 'password'"
+                      >
+                      <span class="icon is-small is-left">
+                        <i class="fas fa-lock"></i>
+                      </span>
+                      <span id="btn_toggle" class="icon is-small is-right" style="pointer-events: all; cursor: pointer" (click)="togglePassword()">
+                        <i [ngClass]="isPasswordVisible ? 'fa fa-eye-slash' : 'fa fa-eye'"></i>
+                    </span>
                     </p>
-                </div>
+                  </div>
 
                 <div class="field">
                     <p class="control">
