@@ -24,6 +24,7 @@ export class NoteComponent implements OnInit, AfterViewInit {
   private editor: Quill | undefined;
   private contentChanged: Subject<string> = new Subject<string>();
   imageUploaded: any;
+  
 
   constructor(
     private route: ActivatedRoute,
@@ -180,6 +181,9 @@ export class NoteComponent implements OnInit, AfterViewInit {
         }
       });
     }
+  }
+  getfilteredNotes(){
+    
   }
 
   saveContent(): void {

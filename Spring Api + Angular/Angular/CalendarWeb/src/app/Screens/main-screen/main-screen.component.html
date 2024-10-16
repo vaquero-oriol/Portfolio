@@ -4,16 +4,32 @@
 
 </head>
 <div class="main-screen-container">
-  <div id="header">
-    <div id="links">
-      <div class="link">Welcome back {{userName}} !</div>
-      <div class="link"  id="date">Date:{{date}}</div>
-      <div class="link" id="profile">Profile</div>
+  <nav class="navbar is-primary">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="#">
+        <strong>My Notes</strong>
+      </a>
     </div>
-    
-
-  </div>
-    <h1 class="title">Your Notes</h1>
+  
+    <div class="navbar-menu">
+      <div class="navbar-start">
+        <div class="navbar-item">
+          Welcome back {{ userName }}!
+        </div>
+        <div class="navbar-item">
+          Date: {{ date }}
+        </div>
+      </div>
+  
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <a class="button is-light" id="profile">Profile</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+  
+  <h1 class="title">Your Notes</h1>
 
     <button id="creation"type="button" class="button" (click)="createNote()"> +</button>
 
@@ -22,10 +38,10 @@
 
     <div class="field has-addons">
       <div class="control">
-        <input class="input" type="text" placeholder="Search notes">
+        <input class="input" type="text" placeholder="Search notes"[(ngModel)]="search">
       </div>
       <div class="control">
-        <button id="SearchB"class="button is-info">
+        <button id="SearchB"class="button is-info" (click)="filterNotes()">
           Search
         </button>
       </div>
