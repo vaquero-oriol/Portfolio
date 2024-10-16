@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, Observable, throwError } from 'rxjs';
 import { AppConstants } from '../../Constants/constants';
 import { ErrorHandlerService } from '../Error/error-service.service'
+import { ObserversModule } from '@angular/cdk/observers';
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +13,8 @@ export class NoteService {
   private getNoteByIdUrl = AppConstants.getNotebyId;
   private updateNoteurl=AppConstants.updateNote;
   private getallNotes=AppConstants.getAllNotes;
+  private uploadImage=AppConstants.uploadImage;
+  private uploadAudio=AppConstants.uploadAudio;
 
   constructor(private http: HttpClient) { }
 
@@ -61,6 +64,15 @@ export class NoteService {
       }),
       catchError(ErrorHandlerService.handleError('getallNotes'))
     );
+  }
+  UploadImage(formData: FormData): Observable<any> {
+    return this.http.post(`${this.uploadImage}`, formData);
+  }
+
+  UploadAudio(formData:FormData) :Observable<any>{
+   
+
+    return this.http.post(`${this.uploadAudio}`,formData)
   }
   
   }

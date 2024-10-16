@@ -12,6 +12,10 @@ export class AppConstants {
     public static readonly createNote=AppConstants.API_URL+"notes/createnote";
     public static readonly getNotebyId= AppConstants.API_URL+"notes/getnote";
     public static readonly updateNote=AppConstants.API_URL+"notes/updatenote";
-    public static readonly getAllNotes=AppConstants.API_URL+"notes/getallnotes"
+    public static readonly getAllNotes=AppConstants.API_URL+"notes/getallnotes";
+    public static readonly uploadImage=AppConstants.API_URL+"notes/uploadimage";
+    public static readonly uploadAudio=AppConstants.API_URL+"notes/uploadaudio";
+
+
     
   }

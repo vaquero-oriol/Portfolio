@@ -9,11 +9,17 @@ import Calendar.Utils.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.lang.reflect.Array;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.UUID;
 
 @Service
 public class NotesService {
@@ -24,6 +30,8 @@ public class NotesService {
     @Autowired
     private UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
+    private final String UploadDirIm="images/";
+    private final String UploadDirAud="audios/";
 
 
     public NotesService(NotesRepository notesRepository,PasswordEncoder passwordEncoder) {
@@ -71,6 +79,8 @@ public class NotesService {
         }
         note.setName(notesRequest.getName());
         note.setContent(notesRequest.getContent());
+        note.setImageUrls(notesRequest.getPhotos());
+        note.setAudioUrls(notesRequest.getAudios());
 
         notesRepository.save(note);
 
@@ -105,4 +115,31 @@ public class NotesService {
 
         return Result.Success(AllNotes);
     }
+    public Result <String> UploadImage(MultipartFile image) throws IOException {
+
+        String fileName= UUID.randomUUID().toString()+"_"+image.getOriginalFilename();
+
+        Path imagePath= Paths.get(UploadDirIm,fileName);
+
+        Files.createDirectories(imagePath.getParent());
+
+        Files.copy(image.getInputStream(),imagePath);
+
+        return Result.Success("/uploads/images/"+fileName);
+
+
+    }
+    public Result<String>UploadAudio(MultipartFile audio) throws IOException{
+
+        String fileName=UUID.randomUUID().toString()+"_"+audio.getOriginalFilename();
+
+        Path audioPath=Paths.get(UploadDirAud,fileName);
+
+        Files.createDirectories(audioPath.getParent());
+
+        Files.copy(audio.getInputStream(),audioPath);
+
+        return Result.Success("/uploads/audios/"+fileName);
+    }
+
 }
