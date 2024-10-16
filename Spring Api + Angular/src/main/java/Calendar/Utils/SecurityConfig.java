@@ -26,6 +26,13 @@ public class SecurityConfig {
                         .requestMatchers("/notes/getnote").permitAll()
                         .requestMatchers("/notes/updatenote").permitAll()
                         .requestMatchers("/notes/getallnotes").permitAll()
+                        .requestMatchers("/notes/uploadimage").permitAll()
+                        .requestMatchers("/notes/uploadaudio").permitAll()
+
+
+
+
+
                         .anyRequest().authenticated()
                 )
                 .httpBasic(withDefaults());

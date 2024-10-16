@@ -4,7 +4,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { AuthService } from '../../Service/Auth/auth-service.service';
 import { Router } from '@angular/router';
 import { UserService } from '../../Service/User/user.service';
-import { formatDate } from '@angular/common';
+import { formatDate, NgFor } from '@angular/common';
 import { error } from 'node:console';
 
 @Component({
@@ -19,7 +19,9 @@ export class MainScreenComponent {
   userName: string = ''; 
   date:string='';
   notes: any[]=[];
-  
+  filtered:any[]=[];
+  search:string='';
+  allnotes:any[]=[];
   
 
   constructor(
@@ -31,6 +33,20 @@ export class MainScreenComponent {
     private userService:UserService
 
   ){
+    
+  }
+  filterNotes() {
+
+    if(this.search.trim()==''){
+      this.loadNotes();
+      
+    }else{
+    this.filtered = this.notes.filter(note => 
+      note.name.toLowerCase().includes(this.search.toLowerCase())
+    );
+  }
+    this.notes=this.filtered;
+
     
   }
   favoriteNote(_t18: any) {

@@ -9,6 +9,8 @@ import { MatInputModule } from '@angular/material/input';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MainScreenComponent } from './Screens/main-screen/main-screen.component';
 import { NoteComponent } from './Screens/note/note.component';
+import { UploadComponentComponent } from './Screens/note/upload-component/upload-component.component';
+
 
 
 export const routes: Routes = [
@@ -31,7 +33,7 @@ export const routes: Routes = [
     FormsModule 
   ],
   declarations: [
-    SignupComponent,LoginComponent,MainScreenComponent,NoteComponent
+    SignupComponent,LoginComponent,MainScreenComponent,NoteComponent,UploadComponentComponent
     
   ],
   exports: [RouterModule]

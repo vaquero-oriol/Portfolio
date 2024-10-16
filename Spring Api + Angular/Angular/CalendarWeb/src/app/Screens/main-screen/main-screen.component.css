@@ -43,9 +43,10 @@
 }
 
 .title {
-  font-size: 2.5rem;
-  margin: 20px 0;
-  text-align: center;
+  font-size: 2.5rem; /* Mantiene el tamaño del título */
+  margin: 8rem 0 3rem; /* Aumenta el margen superior para que no quede pegado al navbar */
+  text-align: center; /* Alineación centrada */
+  color: #ffdd57; /* Color del texto para que se destaque */
 }
 
 #creation {
@@ -162,6 +163,43 @@ button:hover {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+
+.navbar {
+  background-color: #1a1a1a; /* Mismo color que tu header anterior */
+  padding: 20px; /* Espaciado alrededor del navbar */
+  border-radius: 0.5rem; /* Bordes redondeados */
+  width: 100%; /* Asegura que ocupe todo el ancho */
+  position: fixed; /* Fijar en la parte superior */
+  top: 0; /* Alinear en la parte superior */
+  z-index: 1000; /* Asegura que esté por encima de otros elementos */
+}
+
+.navbar-item {
+  color: #e0e0e0; /* Color del texto de los elementos del navbar */
+  transition: color 0.3s ease; /* Transición para el hover */
+}
+
+.navbar-item:hover {
+  color: #ff8827; /* Color en hover */
+  background-color: rgba(255, 136, 39, 0.1); /* Fondo en hover */
+}
+
+.navbar-end .navbar-item {
+  margin-left: auto; /* Alinear a la derecha */
+  margin-right: 2rem; /* Espacio a la derecha del perfil */
+}
+
+.navbar-brand .navbar-item strong {
+  color: #ffdd57; /* Color del texto del título del navbar */
+}
+
+/* Opcional: Estilo para el botón de perfil */
+.button.is-light {
+  background-color: transparent; /* Fondo transparente */
+  color: #ffffff; /* Color del texto */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Transición para el hover */
 }
 
 

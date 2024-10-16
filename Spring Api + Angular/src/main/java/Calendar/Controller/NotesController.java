@@ -7,11 +7,13 @@ import Calendar.Repository.NotesRepository;
 import Calendar.Service.NotesService;
 import Calendar.Utils.Result;
 import jakarta.validation.Valid;
-import org.apache.coyote.Response;
+import org.apache.catalina.connector.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 @RestController
@@ -73,6 +75,36 @@ public class NotesController {
             return ResponseEntity.ok(AllNotes.getValue());
         }else{
             return ResponseEntity.badRequest().body(AllNotes.getError());
+        }
+    }
+
+    @PostMapping("/uploadimage")
+    public ResponseEntity<?>UploadImage(@RequestParam ("image")MultipartFile file){
+        try{
+            Result<String> result=notesService.UploadImage(file);
+            if(result.isFailure()){
+                return ResponseEntity.badRequest().body(result.getError());
+            }else{
+                return ResponseEntity.ok(result.getValue());
+            }
+
+        }catch(IOException e){
+            return ResponseEntity.badRequest().body("Coudln't upload image"+e.getMessage());
+        }
+    }
+
+    @PostMapping("/uploadaudio")
+    public ResponseEntity<?>UploadAudio(@RequestParam("audio")MultipartFile file){
+        try{
+            Result<String> result=notesService.UploadAudio(file);
+            if(result.isSucces()){
+                return ResponseEntity.ok(result.getValue());
+            }else{
+                return ResponseEntity.badRequest().body(result.getError());
+            }
+
+        }catch (IOException e){
+            return ResponseEntity.badRequest().body("Coudln't upload Audio"+e.getMessage());
         }
     }
 }

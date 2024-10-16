@@ -3,24 +3,34 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { NoteService } from '../../Service/Notes/note.service';
 import Quill from 'quill';
 import Clipboard from 'quill/modules/clipboard';
-import { debounceTime, Subject } from 'rxjs';
+import { debounceTime, range, Subject } from 'rxjs';
+import { UploadComponentComponent } from './upload-component/upload-component.component';
 
 @Component({
   selector: 'app-note',
   templateUrl: './note.component.html',
-  styleUrls: ['./note.component.css']
+  styleUrls: ['./note.component.css'],
+
 })
 export class NoteComponent implements OnInit, AfterViewInit {
+
+
+
+
+
   @ViewChild('editorContainer') editorContainer!: ElementRef;
   noteId: number | undefined;
   note: any;
   private editor: Quill | undefined;
   private contentChanged: Subject<string> = new Subject<string>();
+  imageUploaded: any;
+  
 
   constructor(
     private route: ActivatedRoute,
     private noteService: NoteService,
-    private router: Router
+    private router: Router,
+    
   ) { }
 
   ngOnInit(): void {
@@ -33,6 +43,7 @@ export class NoteComponent implements OnInit, AfterViewInit {
         }
       }
     });
+    
 
     this.contentChanged.pipe(
       debounceTime(1000)
@@ -52,6 +63,13 @@ export class NoteComponent implements OnInit, AfterViewInit {
         });
       }
     });
+  }
+  changeFontSize(event: Event): void {
+    const input = event.target as HTMLInputElement;
+    const newFontSize = `${input.value}rem`; 
+    const editorElement = this.editorContainer.nativeElement as HTMLElement;
+  
+    editorElement.style.fontSize = newFontSize; 
   }
 
   ngAfterViewInit(): void {
@@ -105,7 +123,45 @@ export class NoteComponent implements OnInit, AfterViewInit {
       this.contentChanged.next(this.getEditorContent());
     });
   }
+  onImageUploaded(imageUrl: string) {
+    const img = document.createElement('img');
+    img.src = imageUrl;
+    img.style.maxWidth = '100%';
 
+    const editor = this.editorContainer.nativeElement.querySelector('.note-content-editable');
+    const selection = window.getSelection();
+    if(selection!=null){
+      const range = selection.getRangeAt(0);
+      range.insertNode(img);
+
+    }else{
+      console.log("Range is null")
+    }
+   
+  }
+  onImageSelected(event: Event) {
+    const fileInput = event.target as HTMLInputElement;
+    if (fileInput.files && fileInput.files.length) {
+      const formData = new FormData();
+      for (let i = 0; i < fileInput.files.length; i++) {
+        formData.append('image', fileInput.files[i]);
+      }
+      this.UploadImage(formData);
+    }
+  }
+
+  UploadImage(formData: FormData) {
+    this.noteService.UploadImage(formData).subscribe({
+      next: (response) => {
+        console.log('Image Uploaded Successfully', response);
+        const imageUrl = response.value; 
+        this.imageUploaded.emit(imageUrl); 
+      },
+      error: (error) => {
+        console.error('Error uploading Image', error);
+      }
+    });
+  }
   getEditorContent(): string {
     return this.editor ? this.editor.root.innerHTML : '';
   }
@@ -126,13 +182,16 @@ export class NoteComponent implements OnInit, AfterViewInit {
       });
     }
   }
+  getfilteredNotes(){
+    
+  }
 
   saveContent(): void {
     if (this.noteId !== undefined) {
       this.noteService.updateNote({
         id: this.noteId,
         name: this.note?.name || '',
-        content: (document.querySelector('.note-content-editable') as HTMLElement)?.innerHTML || ''
+        content: this.getEditorContent() || ''
       }).subscribe({
         next: (response: any) => {
           console.log("Content updated");

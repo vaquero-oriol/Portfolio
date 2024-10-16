@@ -1,40 +1,55 @@
-
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-
-<div class="button-container">
-  <div class="botonSalir">
-    <button type="button" class="button" (click)="goBack()">
-      &#8592;
-    </button>
-  </div>
-  <div class="control">
-    <button class="button is-primary" id="save" (click)="saveContent()">Save</button>
-  </div>
-</div>
-
-<div class="note-container">
-  <h1 class="note-title">
-    <input 
-      type="text"
-      [(ngModel)]="note.name"
-      (blur)="saveTitle()"
-      (keydown.enter)="saveTitle()"
-      class="note-title-input"
-      autofocus
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
     />
-  </h1>
-
-  <div class="editor-container">
-    <div
-      class="note-content-editable"
-      contenteditable="true"
-      (blur)="saveContent()"
-      (keydown.enter)="saveContent()"
-      [innerHTML]="note.content || ''"
-      
-    >
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div class="button-container">
+      <div class="botonSalir">
+        <button type="button" class="button" (click)="goBack()">
+          &#8592;
+        </button>
+      </div>
+      <div class="control">
+        <button class="button is-primary" id="save" (click)="saveContent()">Save</button>
+      </div>
     </div>
-  </div>
 
-  
-</div>
+    <div class="note-container">
+      <h1 class="note-title">
+        <input 
+          type="text"
+          [(ngModel)]="note.name"
+          (blur)="saveTitle()"
+          (keydown.enter)="saveTitle()"
+          class="note-title-input"
+          autofocus
+        />
+      </h1>
+
+      <div class="editor-container">
+        
+        <div
+          class="note-content-editable"
+          contenteditable="true"
+          (blur)="saveContent()"
+          (keydown.enter)="saveContent()"
+          [innerHTML]="note.content || ''"
+          #editorContainer
+          
+        >
+        
+        </div>
+        
+      </div>
+
+ 
+    </div>
+  </body>
+</html>
