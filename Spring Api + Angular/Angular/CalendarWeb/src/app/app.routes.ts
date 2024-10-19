@@ -10,6 +10,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MainScreenComponent } from './Screens/main-screen/main-screen.component';
 import { NoteComponent } from './Screens/note/note.component';
 import { UploadComponentComponent } from './Screens/note/upload-component/upload-component.component';
+import { ProfileComponent } from './Screens/Settings/profile/profile.component';
 
 
 
@@ -20,6 +21,7 @@ export const routes: Routes = [
   {path: 'main-screen',component:MainScreenComponent},
   {path:'note',component:NoteComponent},
   { path: 'note/:id', component: NoteComponent },
+  {path: 'profile',component:ProfileComponent},
 ];
 
 @NgModule({
@@ -33,8 +35,7 @@ export const routes: Routes = [
     FormsModule 
   ],
   declarations: [
-    SignupComponent,LoginComponent,MainScreenComponent,NoteComponent,UploadComponentComponent
-    
+    SignupComponent,LoginComponent,MainScreenComponent,NoteComponent,UploadComponentComponent,
   ],
   exports: [RouterModule]
 })
