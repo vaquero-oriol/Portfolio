@@ -74,7 +74,7 @@ export class MainScreenComponent {
     
   }
   redirectProfile(){
- //   this.router.navigate(['/profile'])
+   this.router.navigate(['/profile'])
   }
 
 createNote(){

@@ -44,6 +44,9 @@ export class UserService {
       
       map(response => {
         console.log("Raw response:", response);
+        if(response.token){
+          localStorage.setItem('token',response.token)
+        }
         return response; 
       }),
       catchError(error => {

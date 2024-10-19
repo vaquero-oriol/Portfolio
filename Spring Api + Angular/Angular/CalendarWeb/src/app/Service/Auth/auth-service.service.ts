@@ -18,9 +18,8 @@ export class AuthService {
       }
     }
   }
-  isLoggedIn() {
-    
-    
+  isLoggedIn(): boolean {
+    return !!localStorage.getItem('userId'); 
   }
   login(userId: number) {
     if (isPlatformBrowser(this.platformId)) {

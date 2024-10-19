@@ -54,8 +54,8 @@
                 <i class="fas fa-lock"></i>
               </span>
             
-             <span id="btn_toggle" class="icon is-small is-right" style="pointer-events: all; cursor: pointer" (click)="togglePassword()">
-                <i [ngClass]="isPasswordVisible ? 'fa fa-eye-slash' : 'fa fa-eye'"></i>
+             <span id="btn_toggle" class="icon is-small is-right" style="pointer-events: all; cursor: pointer" >
+                <i [ngClass]="isPasswordVisible ? 'fa fa-eye-slash' : 'fa fa-eye'"(click)="togglePassword()"></i>
             </span>
             </p>
           </div>

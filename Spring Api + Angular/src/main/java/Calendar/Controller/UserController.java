@@ -1,12 +1,12 @@
 package Calendar.Controller;
 
 import Calendar.Entity.Request.UserRequest;
+import Calendar.Entity.Response.AuthResponse;
 import Calendar.Entity.UserEntity;
+import Calendar.Service.AuthService;
 import Calendar.Service.UserService;
 import Calendar.Utils.Result;
 import jakarta.validation.Valid;
-import org.apache.catalina.User;
-import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,16 +15,18 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/users")
 public class UserController {
 
+    private final AuthService authService;
     private final UserService userService;
 
     @Autowired
-    public UserController(UserService userService) {
+    public UserController(AuthService authService, UserService userService) {
+        this.authService = authService;
         this.userService = userService;
     }
 
     @PostMapping("/createUser")
     public ResponseEntity<?> createUser(@Valid @RequestBody UserRequest userRequest) {
-        Result<UserEntity> result = userService.createUser(userRequest);
+        Result<UserEntity> result = authService.createUser(userRequest);
 
         if (result.isSucces()) {
             return ResponseEntity.ok(result.getValue());
@@ -35,7 +37,7 @@ public class UserController {
 
     @PostMapping("/login")
     public ResponseEntity<?> logIn(@Valid @RequestBody UserRequest userRequest) {
-        Result<UserEntity> result = userService.logIn(userRequest);
+        Result<AuthResponse> result = authService.logIn(userRequest);
 
         if (result.isSucces()) {
             return ResponseEntity.ok(result.getValue());

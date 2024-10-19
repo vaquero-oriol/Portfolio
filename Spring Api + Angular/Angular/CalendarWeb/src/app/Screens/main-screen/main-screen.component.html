@@ -6,8 +6,8 @@
 <div class="main-screen-container">
   <nav class="navbar is-primary">
     <div class="navbar-brand">
-      <a class="navbar-item" href="#">
-        <strong>My Notes</strong>
+      <a class="navbar-item" >
+        <strong>Logo</strong>
       </a>
     </div>
   
@@ -23,13 +23,13 @@
   
       <div class="navbar-end">
         <div class="navbar-item">
-          <a class="button is-light" id="profile">Profile</a>
+          <a class="button is-light" id="profile" (click)="redirectProfile()">Profile</a>
         </div>
       </div>
     </div>
   </nav>
   
-  <h1 class="title">Your Notes</h1>
+  <h1 class="title">Your notes</h1>
 
     <button id="creation"type="button" class="button" (click)="createNote()"> +</button>
 

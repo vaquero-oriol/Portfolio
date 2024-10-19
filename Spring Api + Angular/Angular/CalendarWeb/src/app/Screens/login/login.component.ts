@@ -44,12 +44,13 @@ togglePassword(){
           if (response!=null) {
 
             console.log("Esto es el response.id",response.id)
-            const userId = response.id;
+            const userId = response.user.id;
             console.log("Este es el user id que le llega",userId)
 
             
             if (typeof userId === 'number') { 
               this.authService.login(userId);
+              
   
               this.snackbar.open('Login was successful', 'Close', {
                 duration: 3000,
