@@ -1,5 +1,6 @@
 package Calendar.Controller;
 
+import Calendar.Entity.Request.UploadRequest;
 import Calendar.Entity.Request.UserRequest;
 import Calendar.Entity.Response.AuthResponse;
 import Calendar.Entity.UserEntity;
@@ -54,5 +55,15 @@ public class UserController {
         }else{
             return ResponseEntity.badRequest().body(result.getError());
         }
+    }
+    @PutMapping("/uploaduser")
+    public ResponseEntity<?>UploadUser(@Valid @RequestBody UploadRequest uploadRequest){
+    Result<UserEntity>result= userService.uploadProfile(uploadRequest);
+
+    if(result.isSucces()){
+        return ResponseEntity.ok((result.getValue()));
+    }else{
+        return ResponseEntity.badRequest().body(result.getError());
+    }
     }
 }

@@ -50,6 +50,7 @@ public class AuthService {
 
         try {
             UserEntity newUser = new UserEntity(userRequest.getName(), passwordEncoder.encode(userRequest.getPassword()));
+            newUser.setCreationDate(new Date());
             userRepository.save(newUser);
             return Result.Success(newUser);
         } catch (Exception e) {
