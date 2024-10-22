@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -27,6 +28,14 @@ public class UserEntity {
     private List<NotesEntity> notes;
     @OneToMany(mappedBy = "user")
     private List<EventEntity> events;
+
+    @Column(name="ProfilePic", columnDefinition="TEXT")
+    private String ProfilePic;
+
+    @Column(name="CreationDate")
+    private Date creationDate;
+
+
 
 public UserEntity(String name,String password){
     this.name=name;

@@ -4,6 +4,7 @@ import { catchError, map, Observable, throwError } from 'rxjs';
 import { AppConstants } from '../../Constants/constants';
 import { ErrorHandlerService } from '../Error/error-service.service'
 import { ObserversModule } from '@angular/cdk/observers';
+import { response } from 'express';
 
 @Injectable({
   providedIn: 'root'
@@ -43,14 +44,20 @@ export class NoteService {
     );
   }
   updateNote(noteRequest: { id: number, name: string, content: string }): Observable<any> {
+    console.log(localStorage.getItem('token'));
 
-    const headers = { 'Content-Type': 'application/json' };
 
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${localStorage.getItem('token')}`,
+      'Content-Type': 'application/json'
+    });
+    
     return this.http.put<any>(this.updateNoteurl, noteRequest, { headers }).pipe(
       map(response => {
         console.log("Response:", response);
         return response;
       }),
+      
       catchError(ErrorHandlerService.handleError('updateNote'))
     );
   }

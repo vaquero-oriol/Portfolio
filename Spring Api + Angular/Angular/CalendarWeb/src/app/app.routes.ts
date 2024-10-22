@@ -10,6 +10,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MainScreenComponent } from './Screens/main-screen/main-screen.component';
 import { NoteComponent } from './Screens/note/note.component';
 import { UploadComponentComponent } from './Screens/note/upload-component/upload-component.component';
+import { ProfileComponent } from './Screens/Settings/profile/profile.component';
+import { authGuard } from './auth/auth.guard'; 
+
 
 
 
@@ -17,9 +20,10 @@ export const routes: Routes = [
   { path: '', component: SignupComponent },
   { path: 'sign-up', component: SignupComponent },
   { path: 'login', component: LoginComponent },
-  {path: 'main-screen',component:MainScreenComponent},
-  {path:'note',component:NoteComponent},
-  { path: 'note/:id', component: NoteComponent },
+  {path: 'main-screen',component:MainScreenComponent,canActivate:[authGuard]},
+  {path:'note',component:NoteComponent,canActivate:[authGuard]},
+  { path: 'note/:id', component: NoteComponent ,canActivate:[authGuard]},
+  {path: 'profile',component:ProfileComponent,canActivate:[authGuard]},
 ];
 
 @NgModule({
@@ -33,8 +37,7 @@ export const routes: Routes = [
     FormsModule 
   ],
   declarations: [
-    SignupComponent,LoginComponent,MainScreenComponent,NoteComponent,UploadComponentComponent
-    
+    SignupComponent,LoginComponent,MainScreenComponent,NoteComponent,UploadComponentComponent,
   ],
   exports: [RouterModule]
 })

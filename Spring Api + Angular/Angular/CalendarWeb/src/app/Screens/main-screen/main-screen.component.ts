@@ -73,6 +73,9 @@ export class MainScreenComponent {
     this.router.navigate(['/note',id])
     
   }
+  redirectProfile(){
+   this.router.navigate(['/profile'])
+  }
 
 createNote(){
   const userId=this.authService.getUserId();

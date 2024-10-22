@@ -8,7 +8,7 @@
   text-align: center; /* Centramos el texto dentro del formulario */
 }
 
-.signup-title {
+.login-title {
   color: #f5f5f5; /* Títulos claros */
   font-size: 2rem;
   font-weight: bold;
@@ -39,6 +39,6 @@ mat-form-field {
   height: 2.5;
 }
 
-.field{
-  margin-bottom: 1.5rem;
+.icon.is-right {
+  cursor: pointer;
 }

@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { UserService } from '../../Service/User/user.service';
+import { UserService } from '../../../Service/User/user.service';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { AuthService } from '../../Service/Auth/auth-service.service';
+import { AuthService } from '../../../Service/Auth/auth-service.service';
 
 @Component({
   selector: 'app-login',
@@ -44,13 +44,12 @@ togglePassword(){
           if (response!=null) {
 
             console.log("Esto es el response.id",response.id)
-            const userId = response.user.id;
+            const userId = response.id;
             console.log("Este es el user id que le llega",userId)
 
             
             if (typeof userId === 'number') { 
               this.authService.login(userId);
-              
   
               this.snackbar.open('Login was successful', 'Close', {
                 duration: 3000,

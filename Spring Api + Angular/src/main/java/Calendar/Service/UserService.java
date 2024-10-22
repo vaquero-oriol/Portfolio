@@ -1,11 +1,13 @@
 package Calendar.Service;
 
+import Calendar.Entity.Request.UploadRequest;
 import Calendar.Entity.Request.UserRequest;
 import Calendar.Entity.UserEntity;
 import Calendar.Repository.UserRepository;
 import Calendar.Utils.Exceptions;
 import Calendar.Utils.Result;
 import jakarta.validation.Valid;
+import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -22,40 +24,7 @@ public class UserService {
         this.passwordEncoder = passwordEncoder;
     }
 
-    public Result<UserEntity> createUser(@Valid UserRequest userRequest) {
-        if (userRequest.getName() == null || userRequest.getPassword() == null) {
-            return Result.Failure("Not valid data");
-        }
 
-        if (userRepository.findUserByName(userRequest.getName()) != null) {
-            return Result.Failure("User already exists");
-        }
-
-        try {
-            UserEntity newUser = new UserEntity(userRequest.getName(), passwordEncoder.encode(userRequest.getPassword()));
-            userRepository.save(newUser);
-            return Result.Success(newUser);
-        } catch (Exception e) {
-            return Result.Failure("Error creating user: " + e.getMessage());
-        }
-    }
-
-    public Result<UserEntity> logIn(@Valid UserRequest userRequest) {
-        if (userRequest.getName() == null || userRequest.getPassword() == null) {
-            return Result.Failure("Name or Password is null");
-        }
-
-        UserEntity usuario = userRepository.findUserByName(userRequest.getName());
-        if (usuario == null) {
-            return Result.Failure("User doesn't exist");
-        }
-
-        if (!passwordEncoder.matches(userRequest.getPassword(), usuario.getPassword())) {
-            return Result.Failure("Credentials are not the same");
-        }
-
-        return Result.Success(usuario);
-    }
     public Result<UserEntity>getUserName(@Valid int id){
         if(id==0){
             return Result.Failure("Id is not Valid");
@@ -66,6 +35,16 @@ public class UserService {
         if(user==null){
             return Result.Failure("User doesn't exist");
         }
+        return Result.Success(user);
+    }
+    public Result<UserEntity> uploadProfile(UploadRequest uploadRequest){
+        if(uploadRequest !=null || uploadRequest.getId()<=0){
+            return Result.Failure("Values are not valid");
+        }
+        UserEntity user=userRepository.findUserById(uploadRequest.getId());
+        user.setName(uploadRequest.getName());
+        user.setProfilePic(uploadRequest.getProfilePic());
+
         return Result.Success(user);
     }
 }

@@ -6,6 +6,7 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthService {
+  
   private userIdSubject = new BehaviorSubject<number | null>(null);
   userId$ = this.userIdSubject.asObservable();
 
@@ -17,7 +18,9 @@ export class AuthService {
       }
     }
   }
-
+  isLoggedIn(): boolean {
+    return !!localStorage.getItem('userId'); 
+  }
   login(userId: number) {
     if (isPlatformBrowser(this.platformId)) {
       if (userId != null) { 
