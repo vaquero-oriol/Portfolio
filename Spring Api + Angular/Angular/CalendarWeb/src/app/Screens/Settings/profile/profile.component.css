@@ -1,214 +1,25 @@
 .main-screen-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-    background-color: #2c2c2c;
-    color: #ffffff;
-    min-height: 100vh;
-  }
-  
-  #header {
-    display: flex;
-    padding: 20px;
-    margin-bottom: 20px;
-    background-color: #1a1a1a;
-    border-radius: 0.5rem;
-    width: 100%;
-  }
-  
-  #links {
-    gap: 20px;
-    flex-grow: 1;
-    display: flex;
-  }
-  
-  .link {
-    cursor: pointer;
-    color: #e0e0e0;
-    transition: color 0.3s ease;
-    padding: 10px;
-    border-radius: 4px;
-  }
-  
-  .link:hover {
-    color: #ff8827;
-    background-color: rgba(255, 136, 39, 0.1);
-  }
-  
-  #profile {
-    margin-left: auto;
-    margin-right: 2rem;
-    color: #e0e0e0;
-  }
-  
-  .title {
-    font-size: 2.5rem; /* Mantiene el tamaño del título */
-    margin: 8rem 0 3rem; /* Aumenta el margen superior para que no quede pegado al navbar */
-    text-align: center; /* Alineación centrada */
-    color: #ffdd57; /* Color del texto para que se destaque */
-  }
-  
-  #creation {
-    color: #ffffff;
-    border: none;
-    border-radius: 50%;
-    padding: 15px;
-    font-size: 20px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    position: fixed;
-    top: 8%;
-    right: 10%;
-    width: 60px;
-    height: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    line-height: 1;
-  }
-  
-  button:hover {
-    background-color: #2c3e50;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-    color:white;
-  }
-  
-  #SearchB {
-    margin-top: 0.02rem;
-    width: 5rem;
-    height: 2.47rem;
-    
-  }
-  
-  .notes-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    padding: 20px;
-  }
-  
-  .note-card {
-    background-color: #2c3e50;
-    color: #ecf0f1;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    width: 300px;
-    padding: 20px;
-    position: relative;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  
-    &:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-      
-      .note-buttons {
-        opacity: 1; 
-      }
-    }
-  }
-  
-  .note-buttons {
-    position: absolute; 
-    margin-top: -2.5rem;
-    right: 0.5rem; 
-    display: flex;
-    gap: 10px;
-    opacity: 0; 
-    transition: opacity 0.3s ease;
-  }
-  
-  .delete-button, .favorite-button {
-    background: none;
-    border: none;
-    color: #ffdd57;
-    font-size: 1.2rem;
-    cursor: pointer;
-    padding: 5px;
-    border-radius: 50%;
-    transition: background-color 0.3s ease;
-  
-    &:hover {
-      background-color: rgba(255, 221, 87, 0.2);
-    }
-  }
-  
-  .delete-button {
-    color: #e74c3c;
-  }
-  
-  .favorite-button {
-    color: #f1c40f;
-  }
-  
-  .note-title {
-    font-size: 1.5rem;
-    font-weight: 600;
-    margin-bottom: 10px;
-    text-align: center;
-    color: #ffdd57;
-  }
-  
-  .note-preview {
-    font-size: 1rem;
-    line-height: 1.4;
-    color: #bdc3c7;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-  
-  
-  .navbar {
-    background-color: #1a1a1a; /* Mismo color que tu header anterior */
-    padding: 20px; /* Espaciado alrededor del navbar */
-    border-radius: 0.5rem; /* Bordes redondeados */
-    width: 100%; /* Asegura que ocupe todo el ancho */
-    position: fixed; /* Fijar en la parte superior */
-    top: 0; /* Alinear en la parte superior */
-    z-index: 1000; /* Asegura que esté por encima de otros elementos */
-  }
-  
-  .navbar-item {
-    color: #e0e0e0; /* Color del texto de los elementos del navbar */
-    transition: color 0.3s ease; /* Transición para el hover */
-  }
-  
-  .navbar-item:hover {
-    color: #ff8827; /* Color en hover */
-    background-color: rgba(255, 136, 39, 0.1); /* Fondo en hover */
-  }
-  
-  .navbar-end .navbar-item {
-    margin-left: auto; /* Alinear a la derecha */
-    margin-right: 2rem; /* Espacio a la derecha del perfil */
-  }
-  
-  .navbar-brand .navbar-item strong {
-    color: #ffdd57; /* Color del texto del título del navbar */
-  }
-  
-  /* Opcional: Estilo para el botón de perfil */
-  .button.is-light {
-    background-color: transparent; /* Fondo transparente */
-    color: #ffffff; /* Color del texto */
-    transition: background-color 0.3s ease, color 0.3s ease; /* Transición para el hover */
-  }
-  .profile-container{
-    background-color: #1f1f1f; /* Fondo oscuro para el formulario */
+  padding: 20px;
+  background-color: #2c2c2c;
+  color: #ffffff;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center; /* Centrar horizontalmente */
+  align-items: center; /* Centrar verticalmente */
+  flex-direction: column; /* Asegura que los elementos se apilen verticalmente */
+}
+
+.profile-container {
+  background-color: #1f1f1f; /* Fondo oscuro para el formulario */
   padding: 2rem;
   border-radius: 0.75rem;
   width: 100%; /* Ocupa el 100% del contenedor */
   max-width: 500px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   text-align: center; /* Centramos el texto dentro del formulario */
-  }
-  
-  
+}
+
+/* Corregido el selector de h1 */
+.profile-container h1 {
+  color: #ffdd57;
+}

@@ -61,3 +61,71 @@ button:active {
 .title{
   margin-top: 2rem;
 }
+#header {
+  display: flex;
+  padding: 20px;
+  margin-bottom: 20px;
+  background-color: #1a1a1a;
+  border-radius: 0.5rem;
+  width: 100%;
+}
+
+#links {
+  gap: 20px;
+  flex-grow: 1;
+  display: flex;
+}
+
+.link {
+  cursor: pointer;
+  color: #e0e0e0;
+  transition: color 0.3s ease;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+.link:hover {
+  color: #ff8827;
+  background-color: rgba(255, 136, 39, 0.1);
+}
+
+#profile {
+  margin-left: auto;
+  margin-right: 2rem;
+  color: #e0e0e0;
+}
+.navbar {
+  background-color: #1a1a1a; /* Mismo color que tu header anterior */
+  padding: 20px; /* Espaciado alrededor del navbar */
+  border-radius: 0.5rem; /* Bordes redondeados */
+  width: 100%; /* Asegura que ocupe todo el ancho */
+  position: fixed; /* Fijar en la parte superior */
+  top: 0; /* Alinear en la parte superior */
+  z-index: 1000; /* Asegura que esté por encima de otros elementos */
+}
+
+.navbar-item {
+  color: #e0e0e0; /* Color del texto de los elementos del navbar */
+  transition: color 0.3s ease; /* Transición para el hover */
+}
+
+.navbar-item:hover {
+  color: #ff8827; /* Color en hover */
+  background-color: rgba(255, 136, 39, 0.1); /* Fondo en hover */
+}
+
+.navbar-end .navbar-item {
+  margin-left: auto; /* Alinear a la derecha */
+  margin-right: 2rem; /* Espacio a la derecha del perfil */
+}
+
+.navbar-brand .navbar-item strong {
+  color: #ffdd57; /* Color del texto del título del navbar */
+}
+
+/* Opcional: Estilo para el botón de perfil */
+.button.is-light {
+  background-color: transparent; /* Fondo transparente */
+  color: #ffffff; /* Color del texto */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Transición para el hover */
+}
